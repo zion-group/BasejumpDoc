@@ -3,7 +3,7 @@ DFF
 ########
 
 *******
-bsg_ff
+bsg_dff
 *******
 
 * Overviwe
@@ -25,7 +25,9 @@ bsg_ff
 * Parameter
 
   width_p : input and output data width.
+
   harden_p
+
   strength_p: set drive strength.
 
 - Application scenarios
@@ -61,7 +63,9 @@ bsg_dff_en
 * Parameter
   
   width_p : input and output data width.
+  
   harden_p
+
   strength_p: set drive strength.
 
 - Application scenarios
@@ -97,6 +101,7 @@ bsg_dff_reset
 * Parameter
   
   width_p : input and output data width.
+  
   harden_p
 
 - Application scenarios
@@ -134,7 +139,9 @@ bsg_dff_reset_en
 * Parameter
   
   width_p : input and output data width.
+
   harden_p
+
   reset_val_p : Bit extended reset_val_p is initial value of data_o after reset.
 
 - Application scenarios
@@ -170,6 +177,7 @@ bsg_dff_negedge_reset
 * Parameter
   
   width_p : input and output data width.
+  
   harden_p
 
 - Application scenarios
@@ -203,6 +211,7 @@ bsg_dff_gatestack
 * Parameter
 
   width_p : input and output data width.
+  
   harden_p
 
 - Application scenarios
@@ -219,7 +228,7 @@ bsg_dff_chain
 
 * Overviwe
 
-  The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial `dsg_dff`_.This dff chain is positive edge  triggered.
+  The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial `bsg_ff`_. This dff chain is positive edge  triggered.
 
 - Interface
   
@@ -236,6 +245,7 @@ bsg_dff_chain
 * Parameter
 
   width_p : input and output data width.
+
   num_stages_p : the number of dsg_dff.
 
 - Application scenarios

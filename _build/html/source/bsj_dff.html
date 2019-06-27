@@ -34,7 +34,8 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Welcome to BasejumpDoc’s documentation!" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,20 +79,19 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">DFF</a><ul>
-<li><a class="reference internal" href="#bsg-ff">bsg_ff</a></li>
-<li><a class="reference internal" href="#bsg-dff-en">bsg_dff_en</a></li>
-<li><a class="reference internal" href="#bsg-dff-reset">bsg_dff_reset</a></li>
-<li><a class="reference internal" href="#bsg-dff-reset-en">bsg_dff_reset_en</a></li>
-<li><a class="reference internal" href="#bsg-dff-negedge-reset">bsg_dff_negedge_reset</a></li>
-<li><a class="reference internal" href="#bsg-dff-gatestack">bsg_dff_gatestack</a></li>
-<li><a class="reference internal" href="#bsg-dff-chain">bsg_dff_chain</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DFF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bsg-ff">bsg_ff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsg-dff-en">bsg_dff_en</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsg-dff-reset">bsg_dff_reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsg-dff-reset-en">bsg_dff_reset_en</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsg-dff-negedge-reset">bsg_dff_negedge_reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsg-dff-gatestack">bsg_dff_gatestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsg-dff-chain">bsg_dff_chain</a></li>
 </ul>
 </li>
 </ul>
-</div>
+
             
           
         </div>
@@ -199,9 +199,9 @@
 </ul>
 <ul>
 <li><p class="first">Parameter</p>
-<p>width_p : input and output data width.
-harden_p
-strength_p: set drive strength.</p>
+<p>width_p : input and output data width.</p>
+<p>harden_p</p>
+<p>strength_p: set drive strength.</p>
 </li>
 </ul>
 <ul>
@@ -264,9 +264,9 @@ strength_p: set drive strength.</p>
 </ul>
 <ul>
 <li><p class="first">Parameter</p>
-<p>width_p : input and output data width.
-harden_p
-strength_p: set drive strength.</p>
+<p>width_p : input and output data width.</p>
+<p>harden_p</p>
+<p>strength_p: set drive strength.</p>
 </li>
 </ul>
 <ul>
@@ -330,8 +330,8 @@ strength_p: set drive strength.</p>
 </ul>
 <ul>
 <li><p class="first">Parameter</p>
-<p>width_p : input and output data width.
-harden_p</p>
+<p>width_p : input and output data width.</p>
+<p>harden_p</p>
 </li>
 </ul>
 <ul class="simple">
@@ -397,9 +397,9 @@ harden_p</p>
 </ul>
 <ul>
 <li><p class="first">Parameter</p>
-<p>width_p : input and output data width.
-harden_p
-reset_val_p : Bit extended reset_val_p is initial value of data_o after reset.</p>
+<p>width_p : input and output data width.</p>
+<p>harden_p</p>
+<p>reset_val_p : Bit extended reset_val_p is initial value of data_o after reset.</p>
 </li>
 </ul>
 <ul class="simple">
@@ -461,8 +461,8 @@ reset_val_p : Bit extended reset_val_p is initial value of data_o after reset.</
 </ul>
 <ul>
 <li><p class="first">Parameter</p>
-<p>width_p : input and output data width.
-harden_p</p>
+<p>width_p : input and output data width.</p>
+<p>harden_p</p>
 </li>
 </ul>
 <ul class="simple">
@@ -518,8 +518,8 @@ harden_p</p>
 </ul>
 <ul>
 <li><p class="first">Parameter</p>
-<p>width_p : input and output data width.
-harden_p</p>
+<p>width_p : input and output data width.</p>
+<p>harden_p</p>
 </li>
 </ul>
 <ul class="simple">
@@ -537,7 +537,7 @@ harden_p</p>
 <h2>bsg_dff_chain<a class="headerlink" href="#bsg-dff-chain" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overviwe</p>
-<p>The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial <a href="#id1"><span class="problematic" id="id2">`dsg_dff`_</span></a>.This dff chain is positive edge  triggered.</p>
+<p>The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial <a href="#id1"><span class="problematic" id="id2">`bsg_dff`_</span></a>. This dff chain is positive edge  triggered.</p>
 </li>
 </ul>
 <ul>
@@ -576,8 +576,8 @@ harden_p</p>
 </ul>
 <ul>
 <li><p class="first">Parameter</p>
-<p>width_p : input and output data width.
-num_stages_p : the number of dsg_dff.</p>
+<p>width_p : input and output data width.</p>
+<p>num_stages_p : the number of dsg_dff.</p>
 </li>
 </ul>
 <ul class="simple">
@@ -598,6 +598,13 @@ num_stages_p : the number of dsg_dff.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to BasejumpDoc’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
