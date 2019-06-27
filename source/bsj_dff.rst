@@ -6,7 +6,7 @@ DFF
 bsg_dff
 *******
 
-* Overviwe
+* Overview
 
   This dff is positive edge triggered,the cell provides three ports(clk_i,data_i,data_o).
 
@@ -28,7 +28,7 @@ bsg_dff
 
   harden_p
 
-  strength_p: set drive strength.
+  strength_p : set drive strength.
 
 - Application scenarios
 
@@ -42,7 +42,7 @@ bsg_dff
 bsg_dff_en
 ***********
 
-* Overviwe
+* Overview
 
   This dff is positive edge triggered, D-type flip-flop with active-high synchronous enable (en_i). The cell has a single output (data_o).
 
@@ -66,11 +66,11 @@ bsg_dff_en
   
   harden_p
 
-  strength_p: set drive strength.
+  strength_p : set drive strength.
 
 - Application scenarios
 
-  clock gating
+  clock gating control
 
 * Circuit structure
   
@@ -80,7 +80,7 @@ bsg_dff_en
 bsg_dff_reset
 **************
 
-* Overviwe
+* Overview
 
   This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset (reset_i). The cell has a single output (data_o).
 
@@ -106,7 +106,7 @@ bsg_dff_reset
 
 - Application scenarios
 
-  
+  pipeline register 
 
 * Circuit structure
   
@@ -116,7 +116,7 @@ bsg_dff_reset
 bsg_dff_reset_en
 *****************
 
-* Overviwe
+* Overview
 
   This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset (reset_i) and active-high synchronous enable (en_i) . The cell has a single output (data_o).
 
@@ -156,7 +156,7 @@ bsg_dff_reset_en
 bsg_dff_negedge_reset
 **********************
 
-* Overviwe
+* Overview
 
   This dff is negative edge triggered, D-type flip-flop with active-high synchronous reset (reset_i). The cell has a single output (data_o).
 
@@ -192,7 +192,7 @@ bsg_dff_negedge_reset
 bsg_dff_gatestack
 ******************
 
-* Overviwe
+* Overview
 
   The cell provides three ports(i0,i1,o) and consists of  width_p flip-flops in parallel.This dff gatestack is positive edge of i1 triggered.
 
@@ -226,7 +226,7 @@ bsg_dff_gatestack
 bsg_dff_chain
 ******************
 
-* Overviwe
+* Overview
 
   The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial `bsg_dff`_. This dff chain is positive edge  triggered.
 
@@ -246,7 +246,7 @@ bsg_dff_chain
 
   width_p : input and output data width.
 
-  num_stages_p : the number of dsg_dff.
+  num_stages_p : the number of `bsg_dff`_.
 
 - Application scenarios
 
