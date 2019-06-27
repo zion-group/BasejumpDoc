@@ -28,10 +28,15 @@ bsg_dff
   |  width_p   | input and output data width.                                      |
   +------------+-------------------------------------------------------------------+
   |            | harden_p is a parameter that signals to the tools whether it      |
+  |            |                                                                   |
   |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
+  |            |                                                                   |
+  |            | synthesized version. For example, this could apply to SRAMs, to   |
+  |  harden_p  |                                                                   |
   |            | synchronizers, to particular gates that are placed in a certain   |
+  |            |                                                                   |
   |            | place on an ASIC, to particular gates that should not be optimized|
+  |            |                                                                   |
   |            | away in FPGA, etc.                                                |
   +------------+-------------------------------------------------------------------+
   | strength_p | set drive strength.                                               |
@@ -73,10 +78,15 @@ bsg_dff_en
   |  width_p   | input and output data width.                                      |
   +------------+-------------------------------------------------------------------+
   |            | harden_p is a parameter that signals to the tools whether it      |
+  |            |                                                                   |
   |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
+  |            |                                                                   |
+  |            | synthesized version. For example, this could apply to SRAMs, to   |
+  |  harden_p  |                                                                   |
   |            | synchronizers, to particular gates that are placed in a certain   |
+  |            |                                                                   |
   |            | place on an ASIC, to particular gates that should not be optimized|
+  |            |                                                                   |
   |            | away in FPGA, etc.                                                |
   +------------+-------------------------------------------------------------------+
   | strength_p | set drive strength.                                               |
@@ -118,10 +128,15 @@ bsg_dff_reset
   |  width_p   | input and output data width.                                      |
   +------------+-------------------------------------------------------------------+
   |            | harden_p is a parameter that signals to the tools whether it      |
+  |            |                                                                   |
   |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
+  |            |                                                                   |
+  |            | synthesized version. For example, this could apply to SRAMs, to   |
+  |  harden_p  |                                                                   |
   |            | synchronizers, to particular gates that are placed in a certain   |
+  |            |                                                                   |
   |            | place on an ASIC, to particular gates that should not be optimized|
+  |            |                                                                   |
   |            | away in FPGA, etc.                                                |
   +------------+-------------------------------------------------------------------+
 
@@ -163,10 +178,15 @@ bsg_dff_reset_en
   |  width_p   | input and output data width.                                      |
   +------------+-------------------------------------------------------------------+
   |            | harden_p is a parameter that signals to the tools whether it      |
+  |            |                                                                   |
   |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
+  |            |                                                                   |
+  |            | synthesized version. For example, this could apply to SRAMs, to   |
+  |  harden_p  |                                                                   |
   |            | synchronizers, to particular gates that are placed in a certain   |
+  |            |                                                                   |
   |            | place on an ASIC, to particular gates that should not be optimized|
+  |            |                                                                   |
   |            | away in FPGA, etc.                                                |
   +------------+-------------------------------------------------------------------+
   | reset_val_p| Bit extended reset_val_p is initial value of data_o after reset.  |
@@ -208,10 +228,15 @@ bsg_dff_negedge_reset
   |  width_p   | input and output data width.                                      |
   +------------+-------------------------------------------------------------------+
   |            | harden_p is a parameter that signals to the tools whether it      |
+  |            |                                                                   |
   |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
+  |            |                                                                   |
+  |            | synthesized version. For example, this could apply to SRAMs, to   |
+  |  harden_p  |                                                                   |
   |            | synchronizers, to particular gates that are placed in a certain   |
+  |            |                                                                   |
   |            | place on an ASIC, to particular gates that should not be optimized|
+  |            |                                                                   |
   |            | away in FPGA, etc.                                                |
   +------------+-------------------------------------------------------------------+
 
@@ -249,10 +274,15 @@ bsg_dff_gatestack
   |  width_p   | input and output data width.                                      |
   +------------+-------------------------------------------------------------------+
   |            | harden_p is a parameter that signals to the tools whether it      |
+  |            |                                                                   |
   |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
+  |            |                                                                   |
+  |            | synthesized version. For example, this could apply to SRAMs, to   |
+  |  harden_p  |                                                                   |
   |            | synchronizers, to particular gates that are placed in a certain   |
+  |            |                                                                   |
   |            | place on an ASIC, to particular gates that should not be optimized|
+  |            |                                                                   |
   |            | away in FPGA, etc.                                                |
   +------------+-------------------------------------------------------------------+
 
