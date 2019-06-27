@@ -228,7 +228,7 @@ bsg_dff_chain
 
 * Overviwe
 
-  The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial `bsg_ff`_. This dff chain is positive edge  triggered.
+  The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial `bsg_dff`_. This dff chain is positive edge  triggered.
 
 - Interface
   
