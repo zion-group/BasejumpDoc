@@ -2,15 +2,17 @@
 DFF
 ########
 
+This section introduces all kinds of Dffs provided in bsg library.
+
 *******
 bsg_dff
 *******
 
 * Overview
 
-  This dff is positive edge triggered,the cell provides three ports(clk_i,data_i,data_o).
+  This dff is positive edge triggered with no reset.
 
-- Interface
+- Port
   
   +---------+---------+----------+---------------------------------------------+
   |         |   NAME  |   WIDTH  |    DESCRIPTION                              |
@@ -25,21 +27,17 @@ bsg_dff
 * Parameter
 
   +------------+-------------------------------------------------------------------+ 
-  |  width_p   | input and output data width.                                      |
+  |  width_p   | input and output data width                                       |
   +------------+-------------------------------------------------------------------+
-  |            | harden_p is a parameter that signals to the tools whether it      |
-  |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
-  |            | synchronizers, to particular gates that are placed in a certain   |
-  |            | place on an ASIC, to particular gates that should not be optimized|
-  |            | away in FPGA, etc.                                                |
+  |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
-  | strength_p | set drive strength.                                               |
+  | strength_p | set drive strength                                                |
   +------------+-------------------------------------------------------------------+
 
 - Application scenarios
 
-  regfile
+  - Regfile
+  - High performance design. It is faster than other dff because there is no reset logic. So it can be used in the critical path which do not need reset.
 
 * Circuit structure
   
@@ -51,9 +49,9 @@ bsg_dff_en
 
 * Overview
 
-  This dff is positive edge triggered, D-type flip-flop with active-high synchronous enable (en_i). The cell has a single output (data_o).
+  This dff is positive edge triggered, D-type flip-flop with active-high synchronous enable.
 
-- Interface
+- Port
   
   +---------+---------+----------+--------------------------------------------+
   |         |   NAME  |   WIDTH  |                 DESCRIPTION                |
@@ -70,21 +68,16 @@ bsg_dff_en
 * Parameter
   
   +------------+-------------------------------------------------------------------+ 
-  |  width_p   | input and output data width.                                      |
+  |  width_p   | input and output data width                                       |
   +------------+-------------------------------------------------------------------+
-  |            | harden_p is a parameter that signals to the tools whether it      |
-  |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
-  |            | synchronizers, to particular gates that are placed in a certain   |
-  |            | place on an ASIC, to particular gates that should not be optimized|
-  |            | away in FPGA, etc.                                                |
+  |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
-  | strength_p | set drive strength.                                               |
+  | strength_p | set drive strength                                                |
   +------------+-------------------------------------------------------------------+
 
 - Application scenarios
 
-  clock gating control
+  None
 
 * Circuit structure
   
@@ -96,9 +89,9 @@ bsg_dff_reset
 
 * Overview
 
-  This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset (reset_i). The cell has a single output (data_o).
+  This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset.
 
-- Interface
+- Port
   
   +---------+---------+----------+--------------------------------------------+
   |         |   NAME  |   WIDTH  |                 DESCRIPTION                |
@@ -115,19 +108,14 @@ bsg_dff_reset
 * Parameter
   
   +------------+-------------------------------------------------------------------+ 
-  |  width_p   | input and output data width.                                      |
+  |  width_p   | input and output data width                                       |
   +------------+-------------------------------------------------------------------+
-  |            | harden_p is a parameter that signals to the tools whether it      |
-  |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
-  |            | synchronizers, to particular gates that are placed in a certain   |
-  |            | place on an ASIC, to particular gates that should not be optimized|
-  |            | away in FPGA, etc.                                                |
+  |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
 
 - Application scenarios
 
-  pipeline register 
+  None
 
 * Circuit structure
   
@@ -139,9 +127,9 @@ bsg_dff_reset_en
 
 * Overview
 
-  This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset (reset_i) and active-high synchronous enable (en_i) . The cell has a single output (data_o).
+  This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset and active-high synchronous enable.
 
-- Interface
+- Port
 
   +---------+---------+----------+--------------------------------------------+
   |         |   NAME  |   WIDTH  |                 DESCRIPTION                |
@@ -160,21 +148,16 @@ bsg_dff_reset_en
 * Parameter
   
   +------------+-------------------------------------------------------------------+ 
-  |  width_p   | input and output data width.                                      |
+  |  width_p   | input and output data width                                       |
   +------------+-------------------------------------------------------------------+
-  |            | harden_p is a parameter that signals to the tools whether it      |
-  |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
-  |            | synchronizers, to particular gates that are placed in a certain   |
-  |            | place on an ASIC, to particular gates that should not be optimized|
-  |            | away in FPGA, etc.                                                |
+  |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
-  | reset_val_p| Bit extended reset_val_p is initial value of data_o after reset.  |
+  | reset_val_p| Bit extended reset_val_p is initial value of data_o after reset   |
   +------------+-------------------------------------------------------------------+
 
 - Application scenarios
 
-  
+  None
 
 * Circuit structure
   
@@ -186,9 +169,9 @@ bsg_dff_negedge_reset
 
 * Overview
 
-  This dff is negative edge triggered, D-type flip-flop with active-high synchronous reset (reset_i). The cell has a single output (data_o).
+  This dff is negative edge triggered, D-type flip-flop with active-high synchronous reset.
 
-- Interface
+- Port
   
   +---------+---------+----------+--------------------------------------------+
   |         |   NAME  |   WIDTH  |                 DESCRIPTION                |
@@ -205,19 +188,14 @@ bsg_dff_negedge_reset
 * Parameter
   
   +------------+-------------------------------------------------------------------+ 
-  |  width_p   | input and output data width.                                      |
+  |  width_p   | input and output data width                                       |
   +------------+-------------------------------------------------------------------+
-  |            | harden_p is a parameter that signals to the tools whether it      |
-  |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
-  |            | synchronizers, to particular gates that are placed in a certain   |
-  |            | place on an ASIC, to particular gates that should not be optimized|
-  |            | away in FPGA, etc.                                                |
+  |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
 
 - Application scenarios
 
-  
+  None
 
 * Circuit structure
   
@@ -229,9 +207,9 @@ bsg_dff_gatestack
 
 * Overview
 
-  The cell provides three ports(i0,i1,o) and consists of  width_p flip-flops in parallel.This dff gatestack is positive edge of i1 triggered.
+  The cell provides three ports(i0,i1,o) and consists of width_p flip-flops in parallel.This dff gatestack is positive edge of i1 triggered.
 
-- Interface
+- Port
   
   +---------+---------+----------+---------------------------------------------+
   |         |   NAME  |   WIDTH  |    DESCRIPTION                              |
@@ -246,19 +224,13 @@ bsg_dff_gatestack
 * Parameter
 
   +------------+-------------------------------------------------------------------+ 
-  |  width_p   | input and output data width.                                      |
+  |  width_p   | input and output data width                                       |
   +------------+-------------------------------------------------------------------+
-  |            | harden_p is a parameter that signals to the tools whether it      |
-  |            | should use a hardened version of the item, rather than a          |
-  |  harden_p  | synthesized version. For example, this could apply to SRAMs, to   |
-  |            | synchronizers, to particular gates that are placed in a certain   |
-  |            | place on an ASIC, to particular gates that should not be optimized|
-  |            | away in FPGA, etc.                                                |
+  |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
 
 - Application scenarios
 
-  
 
 * Circuit structure
   
@@ -270,9 +242,9 @@ bsg_dff_chain
 
 * Overview
 
-  The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial `bsg_dff`_. This dff chain is positive edge  triggered.
+  Chain several Dffs together. A Dff chain consists of  width_p serial `bsg_dff`_. It is positive edge triggered.
 
-- Interface
+- Port
   
   +---------+---------+----------+---------------------------------------------+
   |         |   NAME  |   WIDTH  |    DESCRIPTION                              |
@@ -289,12 +261,13 @@ bsg_dff_chain
   +------------+-------------------------------------------------------------------+ 
   |  width_p   | input and output data width.                                      |
   +------------+-------------------------------------------------------------------+ 
-  |num_stages_p| the number of `bsg_dff`_.                                         |
+  |num_stages_p| stage number of `bsg_dff`_                                        |
   +------------+-------------------------------------------------------------------+
 
 - Application scenarios
 
-  
+  - Simple small FIFO.
+  - Data shifter.
 
 * Circuit structure
   

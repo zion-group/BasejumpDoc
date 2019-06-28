@@ -156,15 +156,16 @@
             
   <div class="section" id="dff">
 <h1>DFF<a class="headerlink" href="#dff" title="Permalink to this headline">¶</a></h1>
+<p>This section introduces all kinds of Dffs provided in bsg library.</p>
 <div class="section" id="bsg-dff">
 <h2>bsg_dff<a class="headerlink" href="#bsg-dff" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overview</p>
-<p>This dff is positive edge triggered,the cell provides three ports(clk_i,data_i,data_o).</p>
+<p>This dff is positive edge triggered with no reset.</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">Interface</p>
+<li><p class="first">Port</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -206,26 +207,23 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>width_p</td>
-<td>input and output data width.</td>
+<td>input and output data width</td>
 </tr>
 <tr class="row-even"><td>harden_p</td>
-<td>harden_p is a parameter that signals to the tools whether it
-should use a hardened version of the item, rather than a
-synthesized version. For example, this could apply to SRAMs, to
-synchronizers, to particular gates that are placed in a certain
-place on an ASIC, to particular gates that should not be optimized
-away in FPGA, etc.</td>
+<td>use harden IP or not</td>
 </tr>
 <tr class="row-odd"><td>strength_p</td>
-<td>set drive strength.</td>
+<td>set drive strength</td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
-<ul>
-<li><p class="first">Application scenarios</p>
-<p>regfile</p>
+<ul class="simple">
+<li>Application scenarios<ul>
+<li>Regfile</li>
+<li>High performance design. It is faster than other dff because there is no reset logic. So it can be used in the critical path which do not need reset.</li>
+</ul>
 </li>
 </ul>
 <ul>
@@ -240,11 +238,11 @@ away in FPGA, etc.</td>
 <h2>bsg_dff_en<a class="headerlink" href="#bsg-dff-en" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overview</p>
-<p>This dff is positive edge triggered, D-type flip-flop with active-high synchronous enable (en_i). The cell has a single output (data_o).</p>
+<p>This dff is positive edge triggered, D-type flip-flop with active-high synchronous enable.</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">Interface</p>
+<li><p class="first">Port</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -290,18 +288,13 @@ away in FPGA, etc.</td>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>width_p</td>
-<td>input and output data width.</td>
+<td>input and output data width</td>
 </tr>
 <tr class="row-even"><td>harden_p</td>
-<td>harden_p is a parameter that signals to the tools whether it
-should use a hardened version of the item, rather than a
-synthesized version. For example, this could apply to SRAMs, to
-synchronizers, to particular gates that are placed in a certain
-place on an ASIC, to particular gates that should not be optimized
-away in FPGA, etc.</td>
+<td>use harden IP or not</td>
 </tr>
 <tr class="row-odd"><td>strength_p</td>
-<td>set drive strength.</td>
+<td>set drive strength</td>
 </tr>
 </tbody>
 </table>
@@ -309,7 +302,7 @@ away in FPGA, etc.</td>
 </ul>
 <ul>
 <li><p class="first">Application scenarios</p>
-<p>clock gating control</p>
+<p>None</p>
 </li>
 </ul>
 <ul>
@@ -324,11 +317,11 @@ away in FPGA, etc.</td>
 <h2>bsg_dff_reset<a class="headerlink" href="#bsg-dff-reset" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overview</p>
-<p>This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset (reset_i). The cell has a single output (data_o).</p>
+<p>This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset.</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">Interface</p>
+<li><p class="first">Port</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -375,15 +368,10 @@ away in FPGA, etc.</td>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>width_p</td>
-<td>input and output data width.</td>
+<td>input and output data width</td>
 </tr>
 <tr class="row-even"><td>harden_p</td>
-<td>harden_p is a parameter that signals to the tools whether it
-should use a hardened version of the item, rather than a
-synthesized version. For example, this could apply to SRAMs, to
-synchronizers, to particular gates that are placed in a certain
-place on an ASIC, to particular gates that should not be optimized
-away in FPGA, etc.</td>
+<td>use harden IP or not</td>
 </tr>
 </tbody>
 </table>
@@ -391,7 +379,7 @@ away in FPGA, etc.</td>
 </ul>
 <ul>
 <li><p class="first">Application scenarios</p>
-<p>pipeline register</p>
+<p>None</p>
 </li>
 </ul>
 <ul>
@@ -406,11 +394,11 @@ away in FPGA, etc.</td>
 <h2>bsg_dff_reset_en<a class="headerlink" href="#bsg-dff-reset-en" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overview</p>
-<p>This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset (reset_i) and active-high synchronous enable (en_i) . The cell has a single output (data_o).</p>
+<p>This dff is positive edge triggered, D-type flip-flop with active-high synchronous reset and active-high synchronous enable.</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">Interface</p>
+<li><p class="first">Port</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -461,25 +449,22 @@ away in FPGA, etc.</td>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>width_p</td>
-<td>input and output data width.</td>
+<td>input and output data width</td>
 </tr>
 <tr class="row-even"><td>harden_p</td>
-<td>harden_p is a parameter that signals to the tools whether it
-should use a hardened version of the item, rather than a
-synthesized version. For example, this could apply to SRAMs, to
-synchronizers, to particular gates that are placed in a certain
-place on an ASIC, to particular gates that should not be optimized
-away in FPGA, etc.</td>
+<td>use harden IP or not</td>
 </tr>
 <tr class="row-odd"><td>reset_val_p</td>
-<td>Bit extended reset_val_p is initial value of data_o after reset.</td>
+<td>Bit extended reset_val_p is initial value of data_o after reset</td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
-<ul class="simple">
-<li>Application scenarios</li>
+<ul>
+<li><p class="first">Application scenarios</p>
+<p>None</p>
+</li>
 </ul>
 <ul>
 <li><p class="first">Circuit structure</p>
@@ -493,11 +478,11 @@ away in FPGA, etc.</td>
 <h2>bsg_dff_negedge_reset<a class="headerlink" href="#bsg-dff-negedge-reset" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overview</p>
-<p>This dff is negative edge triggered, D-type flip-flop with active-high synchronous reset (reset_i). The cell has a single output (data_o).</p>
+<p>This dff is negative edge triggered, D-type flip-flop with active-high synchronous reset.</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">Interface</p>
+<li><p class="first">Port</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -544,22 +529,19 @@ away in FPGA, etc.</td>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>width_p</td>
-<td>input and output data width.</td>
+<td>input and output data width</td>
 </tr>
 <tr class="row-even"><td>harden_p</td>
-<td>harden_p is a parameter that signals to the tools whether it
-should use a hardened version of the item, rather than a
-synthesized version. For example, this could apply to SRAMs, to
-synchronizers, to particular gates that are placed in a certain
-place on an ASIC, to particular gates that should not be optimized
-away in FPGA, etc.</td>
+<td>use harden IP or not</td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
-<ul class="simple">
-<li>Application scenarios</li>
+<ul>
+<li><p class="first">Application scenarios</p>
+<p>None</p>
+</li>
 </ul>
 <ul>
 <li><p class="first">Circuit structure</p>
@@ -573,11 +555,11 @@ away in FPGA, etc.</td>
 <h2>bsg_dff_gatestack<a class="headerlink" href="#bsg-dff-gatestack" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overview</p>
-<p>The cell provides three ports(i0,i1,o) and consists of  width_p flip-flops in parallel.This dff gatestack is positive edge of i1 triggered.</p>
+<p>The cell provides three ports(i0,i1,o) and consists of width_p flip-flops in parallel.This dff gatestack is positive edge of i1 triggered.</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">Interface</p>
+<li><p class="first">Port</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -618,15 +600,10 @@ away in FPGA, etc.</td>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>width_p</td>
-<td>input and output data width.</td>
+<td>input and output data width</td>
 </tr>
 <tr class="row-even"><td>harden_p</td>
-<td>harden_p is a parameter that signals to the tools whether it
-should use a hardened version of the item, rather than a
-synthesized version. For example, this could apply to SRAMs, to
-synchronizers, to particular gates that are placed in a certain
-place on an ASIC, to particular gates that should not be optimized
-away in FPGA, etc.</td>
+<td>use harden IP or not</td>
 </tr>
 </tbody>
 </table>
@@ -647,11 +624,11 @@ away in FPGA, etc.</td>
 <h2>bsg_dff_chain<a class="headerlink" href="#bsg-dff-chain" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Overview</p>
-<p>The cell provides three ports(clk_i,data_i,data_o) and consists of  width_p serial <a class="reference internal" href="#bsg-dff">bsg_dff</a>. This dff chain is positive edge  triggered.</p>
+<p>Chain several Dffs together. A Dff chain consists of  width_p serial <a class="reference internal" href="#bsg-dff">bsg_dff</a>. It is positive edge triggered.</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">Interface</p>
+<li><p class="first">Port</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -696,14 +673,18 @@ away in FPGA, etc.</td>
 <td>input and output data width.</td>
 </tr>
 <tr class="row-even"><td>num_stages_p</td>
-<td>the number of <a class="reference internal" href="#bsg-dff">bsg_dff</a>.</td>
+<td>stage number of <a class="reference internal" href="#bsg-dff">bsg_dff</a></td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
 <ul class="simple">
-<li>Application scenarios</li>
+<li>Application scenarios<ul>
+<li>Simple small FIFO.</li>
+<li>Data shifter.</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li><p class="first">Circuit structure</p>
