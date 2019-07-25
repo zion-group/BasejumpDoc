@@ -1,5 +1,5 @@
 ########
-DFF
+bsg_misc
 ########
 
 This section introduces all kinds of Dffs provided in bsg library.
@@ -34,11 +34,10 @@ bsg_dff
   | strength_p | set drive strength                                                |
   +------------+-------------------------------------------------------------------+
 
-- Application scenarios
-
-  - Regfile
-  - High performance design. It is faster than other dff because there is no reset logic. So it can be used in the critical path which do not need reset.
-
+- Assertion
+  
+  None
+  
 * Circuit structure
   
    .. image :: image/bsg_dff.jpg
@@ -75,8 +74,8 @@ bsg_dff_en
   | strength_p | set drive strength                                                |
   +------------+-------------------------------------------------------------------+
 
-- Application scenarios
-
+- Assertion
+  
   None
 
 * Circuit structure
@@ -113,10 +112,10 @@ bsg_dff_reset
   |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
 
-- Application scenarios
-
+- Assertion
+  
   None
-
+  
 * Circuit structure
   
    .. image :: image/bsg_dff_reset.jpg
@@ -155,7 +154,7 @@ bsg_dff_reset_en
   | reset_val_p| Bit extended reset_val_p is initial value of data_o after reset   |
   +------------+-------------------------------------------------------------------+
 
-- Application scenarios
+- Assertion
 
   None
 
@@ -193,7 +192,7 @@ bsg_dff_negedge_reset
   |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
 
-- Application scenarios
+- Assertion
 
   None
 
@@ -229,8 +228,9 @@ bsg_dff_gatestack
   |  harden_p  | use harden IP or not                                              |
   +------------+-------------------------------------------------------------------+
 
-- Application scenarios
-
+- Assertion
+  
+  None
 
 * Circuit structure
   
@@ -264,10 +264,9 @@ bsg_dff_chain
   |num_stages_p| stage number of `bsg_dff`_                                        |
   +------------+-------------------------------------------------------------------+
 
-- Application scenarios
+- Assertion
 
-  - Simple small FIFO.
-  - Data shifter.
+  None
 
 * Circuit structure
   
