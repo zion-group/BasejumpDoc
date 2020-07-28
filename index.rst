@@ -7,7 +7,7 @@ Welcome to BasejumpDoc's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    
 
    source/bsj_dff.rst
