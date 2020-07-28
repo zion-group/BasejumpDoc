@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bsg_binary_plus_one_to_gray &#8212; BasejumpDoc  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bsg-binary-plus-one-to-gray">
+<h1>bsg_binary_plus_one_to_gray<a class="headerlink" href="#bsg-binary-plus-one-to-gray" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module converts binary input + 1 to gray code.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>binary_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>gray_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 53%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_binary_plus_one_to_gray.jpg" src="bsg_misc\image/bsg_binary_plus_one_to_gray.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-buf">
+<h1>bsg_buf<a class="headerlink" href="#bsg-buf" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a buffer circuit.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 53%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_buf.jpg" src="bsg_misc\image/bsg_buf.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-buf-ctrl">
+<h1>bsg_buf_ctrl<a class="headerlink" href="#bsg-buf-ctrl" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module buff 1 bit control signal to width_p vector.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 53%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_buf_ctrl.jpg" src="bsg_misc\image/bsg_buf_ctrl.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">BasejumpDoc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, x1.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/bsg_misc/bsg_b.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

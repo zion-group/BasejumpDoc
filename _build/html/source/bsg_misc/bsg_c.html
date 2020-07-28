@@ -1,0 +1,1533 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bsg_concentrate_static &#8212; BasejumpDoc  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bsg-concentrate-static">
+<h1>bsg_concentrate_static<a class="headerlink" href="#bsg-concentrate-static" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module given a bunch of signals, and a bitvector parameter,concentrate those bits together into a more condensed vector.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>set_els_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 41%" />
+<col style="width: 42%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>pattern_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p>$bits(pattern_els_p)</p></td>
+</tr>
+<tr class="row-even"><td><p>set_els_lp</p></td>
+<td><p>output data width</p></td>
+<td><p><a href="#id1"><span class="problematic" id="id2">`</span></a>BSG_COUNTONES_SYNTH(pattern_els_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_concentrate_static.jpg" src="bsg_misc\image/bsg_concentrate_static.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-clear-up">
+<h1>bsg_counter_clear_up<a class="headerlink" href="#bsg-counter-clear-up" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This counter counts up and is occasionally cleared.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>CLEAR</p></td>
+<td><p>clear_i</p></td>
+<td><p>1</p></td>
+<td><p>clear input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>INPUT</p></td>
+<td><p>up_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>count_o</p></td>
+<td><p>ptr_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>max_val_p</p></td>
+<td><p>set the max value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>init_val_p</p></td>
+<td><p>set the initial value of the count</p></td>
+<td><p><a href="#id3"><span class="problematic" id="id4">`</span></a>BSG_UNDEFINED_IN_SIM(‘0)</p></td>
+</tr>
+<tr class="row-even"><td><p>ptr_width_lp</p></td>
+<td><p>output data width</p></td>
+<td><p><a href="#id5"><span class="problematic" id="id6">`</span></a>BSG_SAFE_CLOG2(max_val_p+1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>disable_overflow_warning_p</p></td>
+<td><p>overflow signal</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_clear_up.jpg" src="bsg_misc\image/bsg_counter_clear_up.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-clear-up-one-hot">
+<h1>bsg_counter_clear_up_one_hot<a class="headerlink" href="#bsg-counter-clear-up-one-hot" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This counter is a one hot counter only one output bit is set at any time.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>CLEAR</p></td>
+<td><p>clear_i</p></td>
+<td><p>1</p></td>
+<td><p>clear input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>INPUT</p></td>
+<td><p>up_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>count_o</p></td>
+<td><p>width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>max_val_p</p></td>
+<td><p>set the max value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>init_val_p</p></td>
+<td><p>set the initial value of the count</p></td>
+<td><p>(width_lp) ‘ (1)</p></td>
+</tr>
+<tr class="row-even"><td><p>width_lp</p></td>
+<td><p>output data width</p></td>
+<td><p>max_val_p+1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_clear_up_one_hot.jpg" src="bsg_misc\image/bsg_counter_clear_up_one_hot.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-clock-downsample">
+<h1>bsg_counter_clock_downsample<a class="headerlink" href="#bsg-counter-clock-downsample" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This counter will counter down from val_i to 0.When the counter hits 0, the output clk_r_o will invert.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>val_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>clk_r_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_clock_downsample.jpg" src="bsg_misc\image/bsg_counter_clock_downsample.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-dynamic-limit">
+<h1>bsg_counter_dynamic_limit<a class="headerlink" href="#bsg-counter-dynamic-limit" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is a counter with dynamic limit that repeats counting from zero to overflow value.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>limit_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>counter_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_dynamic_limit.jpg" src="bsg_misc\image/bsg_counter_dynamic_limit.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-dynamic-limit-en">
+<h1>bsg_counter_dynamic_limit_en<a class="headerlink" href="#bsg-counter-dynamic-limit-en" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module implements simple counter with enable signal and dynamic overflow limit.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 56%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>en_i</p></td>
+<td><p>1</p></td>
+<td><p>setting  port</p></td>
+</tr>
+<tr class="row-odd"><td><p>limit_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>counter_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>overflowed_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_dynamic_limit_en.jpg" src="bsg_misc\image/bsg_counter_dynamic_limit_en.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-overflow-en">
+<h1>bsg_counter_overflow_en<a class="headerlink" href="#bsg-counter-overflow-en" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a counter with an overflow flag bit.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 56%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>en_i</p></td>
+<td><p>1</p></td>
+<td><p>setting  port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>count_o</p></td>
+<td><p>ptr_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>overflow_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>max_val_p</p></td>
+<td><p>max value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>init_val_p</p></td>
+<td><p>initial value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>ptr_width_lp</p></td>
+<td><p>output data width</p></td>
+<td><p><a href="#id7"><span class="problematic" id="id8">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_overflow_en.jpg" src="bsg_misc\image/bsg_counter_overflow_en.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-overflow-set-en">
+<h1>bsg_counter_overflow_set_en<a class="headerlink" href="#bsg-counter-overflow-set-en" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a counter with a set signal and an overflow flag signal.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 52%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>set_i</p></td>
+<td><p>1</p></td>
+<td><p>setting  port</p></td>
+</tr>
+<tr class="row-odd"><td><p>val_i</p></td>
+<td><p>lg_max_val_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>count_o</p></td>
+<td><p>lg_max_val_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>overflow_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>max_val_p</p></td>
+<td><p>max value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>lg_max_val_lp</p></td>
+<td><p>input and output data width</p></td>
+<td><p><a href="#id9"><span class="problematic" id="id10">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_overflow_set_en.jpg" src="bsg_misc\image/bsg_counter_overflow_set_en.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-set-down">
+<h1>bsg_counter_set_down<a class="headerlink" href="#bsg-counter-set-down" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a decrement counter with a set.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 52%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>set_i</p></td>
+<td><p>1</p></td>
+<td><p>setting  port</p></td>
+</tr>
+<tr class="row-odd"><td><p>val_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>down_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>count_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>init_val_p</p></td>
+<td><p>initial value</p></td>
+<td><p>‘0</p></td>
+</tr>
+<tr class="row-even"><td><p>set_and_down_exclusive_p</p></td>
+<td><p>flag bit</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_set_down.jpg" src="bsg_misc\image/bsg_counter_set_down.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-set-en">
+<h1>bsg_counter_set_en<a class="headerlink" href="#bsg-counter-set-en" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a decrement counter with a set.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 52%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>set_i</p></td>
+<td><p>1</p></td>
+<td><p>setting  port</p></td>
+</tr>
+<tr class="row-odd"><td><p>val_i</p></td>
+<td><p>lg_max_val_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>en_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>count_o</p></td>
+<td><p>lg_max_val_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>max_val_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>lg_max_val_lp</p></td>
+<td><p>input and output data width</p></td>
+<td><p><a href="#id11"><span class="problematic" id="id12">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
+</tr>
+<tr class="row-even"><td><p>reset_val_p</p></td>
+<td><p>reset value</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_set_en.jpg" src="bsg_misc\image/bsg_counter_set_en.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-up-down">
+<h1>bsg_counter_up_down<a class="headerlink" href="#bsg-counter-up-down" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is an up-down counter with initial and max values.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 52%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>up_i</p></td>
+<td><p>step_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>down_i</p></td>
+<td><p>step_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>count_o</p></td>
+<td><p>ptr_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>max_val_p</p></td>
+<td><p>max value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>init_val_p</p></td>
+<td><p>initial value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>max_step_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>step_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p><a href="#id13"><span class="problematic" id="id14">`</span></a>BSG_WIDTH(max_step_p)</p></td>
+</tr>
+<tr class="row-even"><td><p>ptr_width_lp</p></td>
+<td><p>output data width</p></td>
+<td><p><a href="#id15"><span class="problematic" id="id16">`</span></a>BSG_WIDTH(max_val_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_up_down.jpg" src="bsg_misc\image/bsg_counter_up_down.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counter-up-down-variable">
+<h1>bsg_counter_up_down_variable<a class="headerlink" href="#bsg-counter-up-down-variable" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is an up-down counter with initial and max values.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 52%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>up_i</p></td>
+<td><p>step_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>down_i</p></td>
+<td><p>step_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>count_o</p></td>
+<td><p>ptr_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>max_val_p</p></td>
+<td><p>max value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>init_val_p</p></td>
+<td><p>initial value</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>max_step_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>step_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p><a href="#id17"><span class="problematic" id="id18">`</span></a>BSG_WIDTH(max_step_p)</p></td>
+</tr>
+<tr class="row-even"><td><p>ptr_width_lp</p></td>
+<td><p>output data width</p></td>
+<td><p><a href="#id19"><span class="problematic" id="id20">`</span></a>BSG_WIDTH(max_val_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counter_up_down_variable.jpg" src="bsg_misc\image/bsg_counter_up_down_variable.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-counting-leading-zeros">
+<h1>bsg_counting_leading_zeros<a class="headerlink" href="#bsg-counting-leading-zeros" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a priority encoder that encodes the input reversed first.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 15%" />
+<col style="width: 28%" />
+<col style="width: 47%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>num_zero_o</p></td>
+<td><p><a href="#id21"><span class="problematic" id="id22">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_counting_leading_zeros.jpg" src="bsg_misc\image/bsg_counting_leading_zeros.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-crossbar-control-basic-o-by-i">
+<h1>bsg_crossbar_control_basic_o_by_i<a class="headerlink" href="#bsg-crossbar-control-basic-o-by-i" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module generates the control signals for bsg_router_crossbar_o_by_i.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 23%" />
+<col style="width: 20%" />
+<col style="width: 47%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>valid_i</p></td>
+<td><p>i_els_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>sel_io_i</p></td>
+<td><p>i_els_p*lg_o_els_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>ready_and_i</p></td>
+<td><p>o_els_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>yumi_o</p></td>
+<td><p>i_els_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>valid_o</p></td>
+<td><p>step_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>grants_oi_one_hot_o</p></td>
+<td><p>o_els_p*i_els_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>i_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>o_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>lg_o_els_lp</p></td>
+<td><p>input data width</p></td>
+<td><p><a href="#id23"><span class="problematic" id="id24">`</span></a>BSG_SAFE_CLOG2(o_els_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_crossbar_control_basic_o_by_i.jpg" src="bsg_misc\image/bsg_crossbar_control_basic_o_by_i.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-crossbar-o-by-i">
+<h1>bsg_crossbar_o_by_i<a class="headerlink" href="#bsg-crossbar-o-by-i" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a benes network implementation.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 23%" />
+<col style="width: 20%" />
+<col style="width: 47%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>i_els_p*width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>sel_oi_one_hot_i</p></td>
+<td><p>o_els_p*i_els_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>o_els_p*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>i_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>o_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_crossbar_o_by_i.jpg" src="bsg_misc\image/bsg_crossbar_o_by_i.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-cycle-counter">
+<h1>bsg_cycle_counter<a class="headerlink" href="#bsg-cycle-counter" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This is a loop counter.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 23%" />
+<col style="width: 20%" />
+<col style="width: 47%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>ctr_r_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>i_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>o_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\image/bsg_cycle_counter.jpg" src="bsg_misc\image/bsg_cycle_counter.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">BasejumpDoc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, x1.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/bsg_misc/bsg_c.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

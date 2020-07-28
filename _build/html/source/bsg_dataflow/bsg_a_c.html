@@ -1,0 +1,1579 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bsg_1_to_n_tagged &#8212; BasejumpDoc  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bsg-1-to-n-tagged">
+<h1>bsg_1_to_n_tagged<a class="headerlink" href="#bsg-1-to-n-tagged" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is intended to take one input and send it to one of several channels according to tag.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>v_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>tag_i</p></td>
+<td><p>tag_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>ready_i</p></td>
+<td><p>num_out_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>yumi_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>v_o</p></td>
+<td><p>num_out_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 49%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>num_out_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>tag_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p><a href="#id1"><span class="problematic" id="id2">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_1_to_n_tagged.jpg" src="bsg_dataflow\image/bsg_1_to_n_tagged.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-1-to-n-tagged-fifo">
+<h1>bsg_1_to_n_tagged_fifo<a class="headerlink" href="#bsg-1-to-n-tagged-fifo" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module implements a FIFO that takes in a multiplexed stream on one end, and provides demultiplexed access on the other.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 15%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>INPUT</p></td>
+<td><p>v_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>tag_i</p></td>
+<td><p>tag_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>data_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>yumi_i</p></td>
+<td><p>num_out_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>yumi_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_o</p></td>
+<td><p>num_out_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>data_o</p></td>
+<td><p>num_out_p*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 45%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_out_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>els_p</p></td>
+<td><p>input data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>unbuffered_mask_p</p></td>
+<td><p>input data width</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>use_pseudo_large_fifo_p</p></td>
+<td><p>input data width</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>tag_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p><a href="#id3"><span class="problematic" id="id4">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_1_to_n_tagged_fifo.jpg" src="bsg_dataflow\image/bsg_1_to_n_tagged_fifo.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-1-to-n-tagged-fifo-shared">
+<h1>bsg_1_to_n_tagged_fifo_shared<a class="headerlink" href="#bsg-1-to-n-tagged-fifo-shared" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module implements a FIFO that takes in a multiplexed stream on one end, and provides demultiplexed access on the other.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 15%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>INPUT</p></td>
+<td><p>v_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>tag_i</p></td>
+<td><p>tag_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>data_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>yumi_i</p></td>
+<td><p>num_out_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>yumi_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_o</p></td>
+<td><p>num_out_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>data_o</p></td>
+<td><p>num_out_p*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 45%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_out_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>els_p</p></td>
+<td><p>input data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>unbuffered_mask_p</p></td>
+<td><p>input data width</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>use_pseudo_large_fifo_p</p></td>
+<td><p>input data width</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>tag_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p><a href="#id5"><span class="problematic" id="id6">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_1_to_n_tagged_fifo_shared.jpg" src="bsg_dataflow\image/bsg_1_to_n_tagged_fifo_shared.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-8b10b-decode-comb">
+<h1>bsg_8b10b_decode_comb<a class="headerlink" href="#bsg-8b10b-decode-comb" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is byte oriented DC balanced 8B/10B block transfer decoder.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>10</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>rd_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><p>OUTPUT</p></td>
+<td><p>data_o</p></td>
+<td><p>8</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>k_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>rd_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_err_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>rd_err_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_8b10b_decode_comb.jpg" src="bsg_dataflow\image/bsg_8b10b_decode_comb.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-8b10b-encode-comb">
+<h1>bsg_8b10b_encode_comb<a class="headerlink" href="#bsg-8b10b-encode-comb" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is byte oriented DC balanced 8B/10B block transfer encoder.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>8</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>k_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>rd_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>data_o</p></td>
+<td><p>10</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>rd_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>kerr_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_8b10b_encode_comb.jpg" src="bsg_dataflow\image/bsg_8b10b_encode_comb.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-8b10b-shift-decoder">
+<h1>bsg_8b10b_shift_decoder<a class="headerlink" href="#bsg-8b10b-shift-decoder" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is byte oriented DC balanced 8B/10B block transfer decoder with shift register.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clock</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>OUTPUT</p></td>
+<td><p>data_o</p></td>
+<td><p>8</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>k_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>v_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>frame_align_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_8b10b_shift_decoder.jpg" src="bsg_dataflow\image/bsg_8b10b_shift_decoder.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-channel-narrow">
+<h1>bsg_channel_narrow<a class="headerlink" href="#bsg-channel-narrow" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module takes output of a previous module and sends this data in smaller number of bits by receiving deque from next module.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clock</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>width_in_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>deque_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>deque_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_o</p></td>
+<td><p>1width_out_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 45%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_in_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>width_out_p</p></td>
+<td><p>output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>lsb_to_msb_p</p></td>
+<td><p>select signal</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_channel_narrow.jpg" src="bsg_dataflow\image/bsg_channel_narrow.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h1>bsg_channel_narrow<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module takes output of a previous module and sends this data in smaller number of bits by receiving deque from next module.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clock</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>width_in_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>deque_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>deque_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_o</p></td>
+<td><p>1width_out_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 45%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_in_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>width_out_p</p></td>
+<td><p>output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>lsb_to_msb_p</p></td>
+<td><p>select signal</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_channel_narrow.jpg" src="bsg_dataflow\image/bsg_channel_narrow.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-channel-tunnel">
+<h1>bsg_channel_tunnel<a class="headerlink" href="#bsg-channel-tunnel" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module allows you to multiplex multiple streams over a shared interconnect without having deadlock occur because of stream interleaving.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clock</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><p>INPUT</p></td>
+<td><p>multi_data_i</p></td>
+<td><p>tagged_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>multi_v_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>multi_yumi_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_i</p></td>
+<td><p>num_in_p*width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>v_i</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>yumi_i</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><p>OUTPUT</p></td>
+<td><p>multi_yumi_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>multi_data_o</p></td>
+<td><p>tagged_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>multi_v_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>yumi_o</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>data_o</p></td>
+<td><p>num_in_p*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_o</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 44%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_in_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>remote_credits_p</p></td>
+<td><p>input data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>use_pseudo_large_fifo_p</p></td>
+<td><p>input data width</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>lg_remote_credits_lp</p></td>
+<td><p>internal signal width</p></td>
+<td><p>$clog2(remote_credits_p+1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lg_credit_decimation_p</p></td>
+<td><p>input data width</p></td>
+<td><p><a href="#id8"><span class="problematic" id="id9">`</span></a>BSG_MIN(lg_remote_credits_lp,4)</p></td>
+</tr>
+<tr class="row-even"><td><p>tag_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p>$clog2(num_in_p+1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>tagged_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p>tag_width_lp + width_p</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_channel_tunnel.jpg" src="bsg_dataflow\image/bsg_channel_tunnel.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-channel-tunnel-in">
+<h1>bsg_channel_tunnel_in<a class="headerlink" href="#bsg-channel-tunnel-in" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module takes N channels and tunnels them, with credit flow control.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 25%" />
+<col style="width: 28%" />
+<col style="width: 39%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clock</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>tagged_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>yumi_i</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>OUTPUT</p></td>
+<td><p>yumi_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>data_o</p></td>
+<td><p>num_in_p*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_o</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>credit_local_return_data_o</p></td>
+<td><p>num_in_p*lg_remote_credits_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>credit_local_return_v_o</p></td>
+<td><p>num_in_p*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 44%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_in_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>remote_credits_p</p></td>
+<td><p>input data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>use_pseudo_large_fifo_p</p></td>
+<td><p>input data width</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>lg_remote_credits_lp</p></td>
+<td><p>internal signal width</p></td>
+<td><p>$clog2(remote_credits_p+1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lg_credit_decimation_p</p></td>
+<td><p>input data width</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>tag_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p>$clog2(num_in_p+1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>tagged_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p>tag_width_lp+width_p</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_channel_tunnel_in.jpg" src="bsg_dataflow\image/bsg_channel_tunnel_in.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-channel-tunnel-out">
+<h1>bsg_channel_tunnel_out<a class="headerlink" href="#bsg-channel-tunnel-out" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module takes N channels and tunnels them, with credit flow control.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 25%" />
+<col style="width: 28%" />
+<col style="width: 39%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clock</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>num_in_p*width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_i</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>yumi_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>credit_local_return_data_i</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>credit_local_return_v_i</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>credit_remote_return_data_i</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>OUTPUT</p></td>
+<td><p>yumi_o</p></td>
+<td><p>num_in_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_o</p></td>
+<td><p>tagged_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>v_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>credit_remote_return_yumi_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 44%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_in_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>remote_credits_p</p></td>
+<td><p>input data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>lg_remote_credits_lp</p></td>
+<td><p>internal signal width</p></td>
+<td><p>$clog2(remote_credits_p+1)</p></td>
+</tr>
+<tr class="row-even"><td><p>lg_credit_decimation_p</p></td>
+<td><p>input data width</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>tag_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p>$clog2(num_in_p+1)</p></td>
+</tr>
+<tr class="row-even"><td><p>tagged_width_lp</p></td>
+<td><p>input data width</p></td>
+<td><p>tag_width_lp+width_p</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_channel_tunnel_out.jpg" src="bsg_dataflow\image/bsg_channel_tunnel_out.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-channel-tunnel-wormhole">
+<h1>bsg_channel_tunnel_wormhole<a class="headerlink" href="#bsg-channel-tunnel-wormhole" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is a special version bsg_channel_tunnel that accepts wormhole packet.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clock</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>INPUT</p></td>
+<td><p>multi_data_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>multi_v_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>multi_yumi_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>link_i</p></td>
+<td><p>num_in_p*bsg_ready_and_link_sif_width_lp</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>OUTPUT</p></td>
+<td><p>multi_ready_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>multi_data_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>multi_v_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>link_o</p></td>
+<td><p>num_in_p*bsg_ready_and_link_sif_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 49%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>x_cord_width_p</p></td>
+<td><p>data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>y_cord_width_p</p></td>
+<td><p>data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>len_width_p</p></td>
+<td><p>length width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>reserved_width_p</p></td>
+<td><p>data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_in_p</p></td>
+<td><p>total number of inputs multiplexed</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>remote_credits_p</p></td>
+<td><p>max number of wormhole packets buffer can store</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_payload_flits_p</p></td>
+<td><p>max possible “wormhole packet payload length” setting</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>lg_credit_decimation_p</p></td>
+<td><p>how often does channel tunnel return credits to sender</p></td>
+<td><p><a href="#id10"><span class="problematic" id="id11">`</span></a>BSG_MIN($clog2(remote_credits_p+1),4)</p></td>
+</tr>
+<tr class="row-odd"><td><p>use_pseudo_large_fifo_p</p></td>
+<td><p>use pseudo large fifo when read / write utilization is less than 50%</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>bsg_ready_and_link_sif_width_lp</p></td>
+<td><p>local parameters</p></td>
+<td><p><a href="#id12"><span class="problematic" id="id13">`</span></a>bsg_ready_and_link_sif_width(width_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_channel_tunnel_wormhole.jpg" src="bsg_dataflow\image/bsg_channel_tunnel_wormhole.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-compare-and-swap">
+<h1>bsg_compare_and_swap<a class="headerlink" href="#bsg-compare-and-swap" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module compare two values and swap them if they are not in order.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>data_i</p></td>
+<td><p>2*width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>swap_on_equal_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>data_o</p></td>
+<td><p>2*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>swapped_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_p</p></td>
+<td><p>data range</p></td>
+<td><p><a href="#id14"><span class="problematic" id="id15">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+</tr>
+<tr class="row-even"><td><p>b_p</p></td>
+<td><p>data range</p></td>
+<td><p><a href="#id16"><span class="problematic" id="id17">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+</tr>
+<tr class="row-odd"><td><p>cond_swap_on_equal_p</p></td>
+<td><p>select signal</p></td>
+<td><p><a href="#id18"><span class="problematic" id="id19">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_compare_and_swap.jpg" src="bsg_dataflow\image/bsg_compare_and_swap.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-credit-to-token">
+<h1>bsg_credit_to_token<a class="headerlink" href="#bsg-credit-to-token" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is a counter for credits, that every decimation_p credits it would assert token_o signal once.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>credit_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>ready_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>token_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>decimation_p</p></td>
+<td><p>signal width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_val_p</p></td>
+<td><p>signal width</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_dataflow\image/bsg_credit_to_token.jpg" src="bsg_dataflow\image/bsg_credit_to_token.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">BasejumpDoc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, x1.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/bsg_dataflow/bsg_a_c.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
