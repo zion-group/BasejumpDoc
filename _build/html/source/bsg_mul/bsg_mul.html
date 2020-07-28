@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bsg_mul_comp42 &#8212; BasejumpDoc  documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bsg-mul-comp42">
+<h1>bsg_mul_comp42<a class="headerlink" href="#bsg-mul-comp42" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is a adder for mul.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>4</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>cr_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>cl_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>c_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>s_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\bsg_mul\image/bsg_mul_comp42.jpg" src="bsg_misc\bsg_mul\image/bsg_mul_comp42.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul-comp42-rep">
+<h1>bsg_mul_comp42_rep<a class="headerlink" href="#bsg-mul-comp42-rep" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module combine vectors of results from blocks.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>4*blocks_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>cr_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>cl_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>c_o</p></td>
+<td><p>blocks_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>s_o</p></td>
+<td><p>blocks_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>blocks_p</p></td>
+<td><p>signal width</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\bsg_mul\image/bsg_mul_comp42_rep.jpg" src="bsg_misc\bsg_mul\image/bsg_mul_comp42_rep.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul-booth-4-block">
+<h1>bsg_mul_booth_4_block<a class="headerlink" href="#bsg-mul-booth-4-block" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module is a block of mul_booth_4.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>SDN_i</p></td>
+<td><p>15</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>cr_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>y_i</p></td>
+<td><p>8</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>cl_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>c_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>s_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>S_above_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>4’b0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>dot_bar_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>4’b0000</p></td>
+</tr>
+<tr class="row-even"><td><p>B_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>4’b0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>one_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>4’b0000</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\bsg_mul\image/bsg_mul_comp42_rep.jpg" src="bsg_misc\bsg_mul\image/bsg_mul_comp42_rep.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul-booth-4-block-rep">
+<h1>bsg_mul_booth_4_block_rep<a class="headerlink" href="#bsg-mul-booth-4-block-rep" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Overview</p>
+<p>This module combine vectors of results from blocks.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>SDN_i</p></td>
+<td><p>15</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>cr_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>y_vec_i</p></td>
+<td><p>8*blocks_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>OUTPUT</p></td>
+<td><p>cl_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>c_o</p></td>
+<td><p>blocks_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-odd"><td><p>s_o</p></td>
+<td><p>blocks_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>blocks_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_above_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>dot_bar_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>B_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>one_vec_p</p></td>
+<td><p>select signal</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="bsg_misc\bsg_mul\image/bsg_mul_booth_4_block_rep.jpg" src="bsg_misc\bsg_mul\image/bsg_mul_booth_4_block_rep.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">BasejumpDoc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, x1.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/bsg_misc/bsg_mul/bsg_mul.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
