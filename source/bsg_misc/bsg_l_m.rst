@@ -1,3 +1,9 @@
+########
+bsg_misc
+########
+
+This section introduces all kinds of Dffs provided in bsg library.
+
 *************
 bsg_less_than
 *************
