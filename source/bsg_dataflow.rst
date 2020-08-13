@@ -1,6 +1,9 @@
-##################
-bsg_dataflow电路库
-##################
+############################
+bsg_dataflow Circuit Library
+############################
+
+tag
+====
 
 ******************
 bsg_1_to_n_tagged
@@ -164,6 +167,9 @@ bsg_1_to_n_tagged_fifo_shared
 
    .. image :: image/bsg_1_to_n_tagged_fifo_shared.jpg
 
+decode 
+======
+
 ***********************
 bsg_8b10b_decode_comb
 ***********************
@@ -280,6 +286,9 @@ bsg_8b10b_shift_decoder
 
    .. image :: image/bsg_8b10b_shift_decoder.jpg
 
+channel narrow
+==============
+
 *******************
 bsg_channel_narrow
 *******************
@@ -372,6 +381,9 @@ bsg_channel_narrow
 * Details & Circuit structure
 
    .. image :: image/bsg_channel_narrow.jpg
+
+channel tunnel
+==============
 
 *******************
 bsg_channel_tunnel
@@ -414,7 +426,6 @@ bsg_channel_tunnel
   +         +-----------------+----------------------+--------------------------------------------+
   |         |       v_o       |       num_in_p       | data output port                           |
   +---------+-----------------+----------------------+--------------------------------------------+
-
 
 * Parameter
 
@@ -609,7 +620,6 @@ bsg_channel_tunnel_wormhole
   |         |           link_o           |num_in_p*bsg_ready_and_link_sif_width_lp  | data output port                           |
   +---------+----------------------------+------------------------------------------+--------------------------------------------+
 
-
 * Parameter
 
   +---------------------------------+----------------------------------------------------------------------+-----------------------------------------+
@@ -645,6 +655,9 @@ bsg_channel_tunnel_wormhole
 
    .. image :: image/bsg_channel_tunnel_wormhole.jpg 
 
+compare swap
+============
+
 ********************
 bsg_compare_and_swap
 ********************
@@ -667,7 +680,6 @@ bsg_compare_and_swap
   |         |         swapped_o          |                     1                    | data output port                           |
   +---------+----------------------------+------------------------------------------+--------------------------------------------+
 
-
 * Parameter
   
   +------------------------+-----------------------------------------------+-------------------------------+
@@ -689,6 +701,9 @@ bsg_compare_and_swap
 * Details & Circuit structure
 
    .. image :: image/bsg_compare_and_swap.jpg
+
+counter
+========
 
 *******************
 bsg_credit_to_token
@@ -731,6 +746,9 @@ bsg_credit_to_token
 * Details & Circuit structure
 
    .. image :: image/bsg_credit_to_token.jpg
+
+RAMs
+=====
 
 *******************
 bsg_fifo_1r1w_large
@@ -1614,6 +1632,9 @@ bsg_one_fifo
 
    .. image :: image/bsg_one_fifo.jpg
 
+parallel in serial out
+======================
+
 **************************
 bsg_parallel_in_serial_out
 **************************
@@ -1718,6 +1739,9 @@ bsg_parallel_in_serial_out_dynamic
 
    .. image :: image/bsg_parallel_in_serial_out_dynamic.jpg
 
+selector
+========
+
 ***************
 bsg_permute_box
 ***************
@@ -1757,6 +1781,9 @@ bsg_permute_box
 * Details & Circuit structure
 
    .. image :: image/bsg_permute_box.jpg
+
+converter
+=========
 
 **********************************
 bsg_ready_to_credit_flow_converter
@@ -1851,6 +1878,9 @@ bsg_relay_fifo
 * Details & Circuit structure
 
    .. image :: image/bsg_relay_fifo.jpg
+
+round robin
+===========
 
 **********************
 bsg_round_robin_1_to_n
@@ -2042,6 +2072,9 @@ bsg_round_robin_n_to_1
 
    .. image :: image/bsg_round_robin_n_to_1.jpg
 
+sbox
+====
+
 *********
 bsg_sbox
 *********
@@ -2152,6 +2185,9 @@ bsg_sbox_ctrl_concentrate
 
    .. image :: image/bsg_sbox_ctrl_concentrate.jpg
 
+vectors
+=======
+
 ******************
 bsg_scatter_gather
 ******************
@@ -2191,6 +2227,9 @@ bsg_scatter_gather
 * Details & Circuit structure
 
    .. image :: image/bsg_scatter_gather.jpg
+
+data structure
+==============
 
 **************************
 bsg_serial_in_parallel_out
@@ -2348,6 +2387,9 @@ bsg_serial_in_parallel_out_full
 
    .. image :: image/bsg_serial_in_parallel_out_full.jpg
 
+shift register
+==============
+
 *************
 bsg_shift_reg
 *************
@@ -2391,6 +2433,9 @@ bsg_shift_reg
 * Details & Circuit structure
 
    .. image :: image/bsg_shift_reg.jpg
+
+sort network
+============
 
 ***********
 bsg_sort_4
@@ -2472,51 +2517,8 @@ bsg_sort_stable
 
    .. image :: image/bsg_sort_stable.jpg
 
-***************
-bsg_two_buncher
-***************
-
-* Overview
-
-  This module takes an incoming stream of words. if the output is read every cycle, the data passes straight through without latency. if the output is not read, then one element is buffered internally and either one or two elements may be pulled out on the next cycle.
-
-- Port
-  
-  +---------+----------------------------+------------------------------------------+--------------------------------------------+
-  |  TYPE   |            NAME            |                   WIDTH                  |                 DESCRIPTION                |
-  +---------+----------------------------+------------------------------------------+--------------------------------------------+
-  |  CLOCK  |           clk_i            |                     1                    | clock input port                           |
-  +---------+----------------------------+------------------------------------------+--------------------------------------------+
-  |  RESET  |          reset_i           |                     1                    | reset input port                           |
-  +---------+----------------------------+------------------------------------------+--------------------------------------------+
-  |         |           data_i           |                     1                    | data input port                            |
-  +         +----------------------------+------------------------------------------+--------------------------------------------+
-  |  INPUT  |            v_i             |                  width_p                 | data input port                            |
-  +         +----------------------------+------------------------------------------+--------------------------------------------+
-  |         |          ready_i           |                  width_p                 | data input port                            |
-  +---------+----------------------------+------------------------------------------+--------------------------------------------+
-  |         |          ready_o           |                     1                    | data output port                           |
-  +         +----------------------------+------------------------------------------+--------------------------------------------+
-  | OUTPUT  |          data_o            |                 2*width_p                | data output port                           |
-  +         +----------------------------+------------------------------------------+--------------------------------------------+
-  |         |           v_o              |                     2                    | data output port                           |
-  +---------+----------------------------+------------------------------------------+--------------------------------------------+
-
-* Parameter
-  
-  +------------------------+-----------------------------------------------+-------------------------------+
-  |          NAME          |                 DESCRIPTION                   |             DEFAULT           |
-  +------------------------+-----------------------------------------------+-------------------------------+ 
-  |        width_p         |input and output data width                    |               -1              |
-  +------------------------+-----------------------------------------------+-------------------------------+
-
-- Assertion
-  
-  None
-  
-* Details & Circuit structure
-
-   .. image :: image/bsg_two_buncher.jpg
+two buncher
+===========
 
 ***************
 bsg_two_buncher
@@ -2563,6 +2565,9 @@ bsg_two_buncher
 * Details & Circuit structure
 
    .. image :: image/bsg_two_buncher.jpg
+
+two fifo
+========
 
 *************
 bsg_two_fifo

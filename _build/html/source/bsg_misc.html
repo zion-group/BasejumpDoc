@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>bsg_misc电路库 &mdash; BasejumpDoc  documentation</title>
+  <title>bsg_misc Circuit Library &mdash; BasejumpDoc  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="bsg_mem电路库" href="bsg_mem.html" /> 
+    <link rel="prev" title="bsg_mem Circuit Library" href="bsg_mem.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,27 +83,66 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="bsg_dataflow.html">bsg_dataflow电路库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bsg_mem.html">bsg_mem电路库</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">bsg_misc电路库</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">电路描述框架</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bsg-mul-comp42">bsg_mul_comp42</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bsg-mul-comp42-rep">bsg_mul_comp42_rep</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bsg-mul-booth-4-block">bsg_mul_booth_4_block</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="bsg_dataflow.html">bsg_dataflow Circuit Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsg_mem.html">bsg_mem Circuit Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">bsg_misc Circuit Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#circuit-description-framework">Circuit Description Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multiplier-class">Multiplier class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-comp42">bsg_mul_comp42</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-comp42-rep">bsg_mul_comp42_rep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-booth-4-block">bsg_mul_booth_4_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-mul-booth-4-block-rep">bsg_mul_booth_4_block_rep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-imul-iterative">bsg_imul_iterative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-array">bsg_mul_array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-array-row">bsg_mul_array_row</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-pipelined">bsg_mul_pipelined</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-synth">bsg_mul_synth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-mul">bsg_mul</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logic-gate-unit">Logic Gate Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-abs">bsg_abs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-and">bsg_and</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-inv">bsg_inv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-nand">bsg_nand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-nor2">bsg_nor2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-nor3">bsg_nor3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-xnor">bsg_xnor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-xor">bsg_xor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adder-class">Adder Class</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-adder-cin">bsg_adder_cin</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-adder-one-hot">bsg_adder_one_hot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-adder-ripple-carry">bsg_adder_ripple_carry</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-and">bsg_and</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#encoder-unit">Encoder Unit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-priority-encode">bsg_priority_encode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-priority-encode-one-hot-out">bsg_priority_encode_one_hot_out</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-arb-fixed">bsg_arb_fixed</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-arb-round-robin">bsg_arb_round_robin</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-arrary-concentrate">bsg_arrary_concentrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-array-reverse">bsg_array_reverse</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-binary-plus-one-to-gray">bsg_binary_plus_one_to_gray</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#buffer-unit">Buffer Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-buf">bsg_buf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-buf-ctrl">bsg_buf_ctrl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-clkbuf">bsg_clkbuf</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg">bsg</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-concentrate-static">bsg_concentrate_static</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">bsg</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-circular-ptr">bsg_circular_ptr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-clkgate-optional">bsg_clkgate_optional</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#counter-unit">Counter Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-counter-clear-up">bsg_counter_clear_up</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-counter-clear-up-one-hot">bsg_counter_clear_up_one_hot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-counter-clock-downsample">bsg_counter_clock_downsample</a></li>
@@ -116,9 +155,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#bsg-counter-up-down">bsg_counter_up_down</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-counter-up-down-variable">bsg_counter_up_down_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-counting-leading-zeros">bsg_counting_leading_zeros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-cycle-counter">bsg_cycle_counter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#crossbar-unit">Crossbar Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-crossbar-control-basic-o-by-i">bsg_crossbar_control_basic_o_by_i</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-crossbar-o-by-i">bsg_crossbar_o_by_i</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-cycle-counter">bsg_cycle_counter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dff-unit">Dff Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-dff">bsg_dff</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-dff-en">bsg_dff_en</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-dff-reset">bsg_dff_reset</a></li>
@@ -130,64 +175,119 @@
 <li class="toctree-l4"><a class="reference internal" href="#bsg-dff-reset-en-bypass">bsg_dff_reset_en_bypass</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-dff-reset-set-clear">bsg_dff_reset_set_clear</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-dlatch">bsg_dlatch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#decode-unit">Decode Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-decode">bsg_decode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-decode-with-v">bsg_decode_with_v</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-defines">bsg_defines</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-edge-detect">bsg_edge_detect</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-encode-one-hot">bsg_encode_one_hot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-expand-bitmask">bsg_expand_bitmask</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-gray-to-binary">bsg_gray_to_binary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#defines">Defines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-defines">bsg_defines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#edge">Edge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsg-edge-detect">bsg_edge_detect</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hash-bank">Hash Bank</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-hash-bank">bsg_hash_bank</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-hash-bank-reverse">bsg_hash_bank_reverse</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#divider-unit">Divider Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-idiv-iterative">bsg_idiv_iterative</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-idiv-iterative-controller">bsg_idiv_iterative_controller</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-id-pool">bsg_id_pool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-imul-iterative">bsg_imul_iterative</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-inv">bsg_inv</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparator-unit">Comparator Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-less-than">bsg_less_than</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-shifter">Linear Shifter</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-level-shift-up-down-sink">bsg_level_shift_up_down_sink</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-level-shift-up-down-source">bsg_level_shift_up_down_source</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-lfsr">bsg_lfsr</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#arbitration-unit">Arbitration Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-locking-arb-fixed">bsg_locking_arb_fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudo-tree">pseudo_tree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-lru-pseudo-tree-backup">bsg_lru_pseudo_tree_backup</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-lru-pseudo-tree-decode">bsg_lru_pseudo_tree_decode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-lru-pseudo-tree-encode">bsg_lru_pseudo_tree_encode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#selector-unit">Selector Unit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-mux">bsg_mux</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-array">bsg_mul_array</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-array-row">bsg_mul_array_row</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-pipelined">bsg_mul_pipelined</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-mul-synth">bsg_mul_synth</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id46">bsg_mux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-mux2-gatestack">bsg_mux2_gatestack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-muxi2-gatestack">bsg_muxi2_gatestack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-mux-bitwise">bsg_mux_bitwise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-mux-butterfly">bsg_mux_butterfly</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-mux-one-hot">bsg_mux_one_hot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-mux-segmented">bsg_mux_segmented</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-nand">bsg_nand</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-nor2">bsg_nor2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-nor3">bsg_nor3</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pg-tree">pg_tree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-pg-tree">bsg_pg_tree</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#popcount">popcount</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-popcount">bsg_popcount</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-priority-encode">bsg_priority_encode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-priority-encode-one-hot-out">bsg_priority_encode_one_hot_out</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reduce">reduce</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-reduce">bsg_reduce</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-reduce-segmented">bsg_reduce_segmented</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rotate-shift">Rotate Shift</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-rotate-left">bsg_rotate_left</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-rotate-right">bsg_rotate_right</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-round-robin-arb">bsg_round_robin_arb</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scan">scan</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-scan">bsg_scan</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cyclically-arbitration">cyclically arbitration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-strobe">bsg_strobe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#swap">swap</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-swap">bsg_swap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#edge-detection">edge detection</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-thermometer-count">bsg_thermometer_count</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#output-fixed-bit-value">output fixed bit value</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-tiehi">bsg_tiehi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-tielo">bsg_tielo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#output-switching-position">output switching position</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-transpose">bsg_transpose</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unconcentrate">unconcentrate</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-unconcentrate-static">bsg_unconcentrate_static</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reset">reset</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-wait-after-reset">bsg_wait_after_reset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#wait-cycles">wait cycles</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bsg-wait-cycles">bsg_wait_cycles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-xnor">bsg_xnor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsg-xor">bsg_xor</a></li>
 </ul>
 </li>
 </ul>
@@ -240,7 +340,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>bsg_misc电路库</li>
+      <li>bsg_misc Circuit Library</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -259,12 +359,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bsg-misc">
-<h1>bsg_misc电路库<a class="headerlink" href="#bsg-misc" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>电路描述框架<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="bsg-misc-circuit-library">
+<h1>bsg_misc Circuit Library<a class="headerlink" href="#bsg-misc-circuit-library" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="circuit-description-framework">
+<h2>Circuit Description Framework<a class="headerlink" href="#circuit-description-framework" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="multiplier-class">
+<h3>Multiplier class<a class="headerlink" href="#multiplier-class" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-mul-comp42">
-<h3>bsg_mul_comp42<a class="headerlink" href="#bsg-mul-comp42" title="Permalink to this headline">¶</a></h3>
+<h4>bsg_mul_comp42<a class="headerlink" href="#bsg-mul-comp42" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p>Overview</p>
 <p>This module is a adder for mul.</p>
@@ -330,7 +432,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-mul-comp42-rep">
-<h3>bsg_mul_comp42_rep<a class="headerlink" href="#bsg-mul-comp42-rep" title="Permalink to this headline">¶</a></h3>
+<h4>bsg_mul_comp42_rep<a class="headerlink" href="#bsg-mul-comp42-rep" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p>Overview</p>
 <p>This module combine vectors of results from blocks.</p>
@@ -416,7 +518,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-mul-booth-4-block">
-<h3>bsg_mul_booth_4_block<a class="headerlink" href="#bsg-mul-booth-4-block" title="Permalink to this headline">¶</a></h3>
+<h4>bsg_mul_booth_4_block<a class="headerlink" href="#bsg-mul-booth-4-block" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p>Overview</p>
 <p>This module is a block of mul_booth_4.</p>
@@ -512,6 +614,7 @@
 </div></blockquote>
 </li>
 </ul>
+</div>
 <div class="section" id="bsg-mul-booth-4-block-rep">
 <h4>bsg_mul_booth_4_block_rep<a class="headerlink" href="#bsg-mul-booth-4-block-rep" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -614,6 +717,361 @@
 </li>
 </ul>
 </div>
+<div class="section" id="bsg-imul-iterative">
+<h4>bsg_imul_iterative<a class="headerlink" href="#bsg-imul-iterative" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is an 32bit integer iterative multiplier, capable of signed &amp; unsigned multiplication.</p>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Port</p></li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>32</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_imul_iterative.jpg" src="source\image/bsg_imul_iterative.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul-array">
+<h4>bsg_mul_array<a class="headerlink" href="#bsg-mul-array" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This module is a pipelined unsigned array multiplier.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 54%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>rst_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>v_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>2*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>pipeline_p</p></td>
+<td><p>selcet signal</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_mul_array.jpg" src="source\image/bsg_mul_array.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul-array-row">
+<h4>bsg_mul_array_row<a class="headerlink" href="#bsg-mul-array-row" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This module is a pipelined adder.</p>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Port</p></li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>row_idx_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-even"><td><p>pipeline_p</p></td>
+<td><p>selcet signal</p></td>
+<td><p>“inv”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_mul_array_row.jpg" src="source\image/bsg_mul_array_row.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul-pipelined">
+<h4>bsg_mul_pipelined<a class="headerlink" href="#bsg-mul-pipelined" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a library of multipliers.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul-synth">
+<h4>bsg_mul_synth<a class="headerlink" href="#bsg-mul-synth" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is synthesized multiplier.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>2*width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_mul_synth.jpg" src="source\image/bsg_mul_synth.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-mul">
+<h4>bsg_mul<a class="headerlink" href="#bsg-mul" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This module is a pipeline multiplier.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 54%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>x_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>y_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>signed_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>z_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_mul.jpg" src="source\image/bsg_mul.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="logic-gate-unit">
+<h3>Logic Gate Unit<a class="headerlink" href="#logic-gate-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-abs">
 <h4>bsg_abs<a class="headerlink" href="#bsg-abs" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -684,6 +1142,547 @@
 </li>
 </ul>
 </div>
+<div class="section" id="bsg-and">
+<h4>bsg_and<a class="headerlink" href="#bsg-and" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a two-input AND gate.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 62%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 62%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_and.jpg" src="source\image/bsg_and.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-inv">
+<h4>bsg_inv<a class="headerlink" href="#bsg-inv" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is an inverter.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>“inv”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_inv.jpg" src="source\image/bsg_inv.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-nand">
+<h4>bsg_nand<a class="headerlink" href="#bsg-nand" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a two-input NAND gate.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 62%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 62%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_nand.jpg" src="source\image/bsg_nand.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-nor2">
+<h4>bsg_nor2<a class="headerlink" href="#bsg-nor2" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a two-input NOR gate.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 62%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 62%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_nor2.jpg" src="source\image/bsg_nor2.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-nor3">
+<h4>bsg_nor3<a class="headerlink" href="#bsg-nor3" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a three-input NOR gate.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 62%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>c_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 62%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_nor3.jpg" src="source\image/bsg_nor3.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-xnor">
+<h4>bsg_xnor<a class="headerlink" href="#bsg-xnor" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a two-input XNOR gate.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 62%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 62%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_xnor.jpg" src="source\image/bsg_xnor.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-xor">
+<h4>bsg_xor<a class="headerlink" href="#bsg-xor" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a two-input XOR gate.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 62%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
+<td><p>a_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>b_i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 62%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_xor.jpg" src="source\image/bsg_xor.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="adder-class">
+<h3>Adder Class<a class="headerlink" href="#adder-class" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-adder-cin">
 <h4>bsg_adder_cin<a class="headerlink" href="#bsg-adder-cin" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -914,21 +1913,24 @@
 </li>
 </ul>
 </div>
-<div class="section" id="bsg-and">
-<h4>bsg_and<a class="headerlink" href="#bsg-and" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="encoder-unit">
+<h3>Encoder Unit<a class="headerlink" href="#encoder-unit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bsg-priority-encode">
+<h4>bsg_priority_encode<a class="headerlink" href="#bsg-priority-encode" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p>Overview</p>
-<p>This is a two-input AND gate.</p>
+<p>The function of this module is to encode and output the input data twice.</p>
 </li>
 </ul>
 <ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 62%" />
+<col style="width: 9%" />
+<col style="width: 16%" />
+<col style="width: 28%" />
+<col style="width: 47%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>TYPE</p></td>
@@ -936,18 +1938,18 @@
 <td><p>WIDTH</p></td>
 <td><p>DESCRIPTION</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
-<td><p>a_i</p></td>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>i</p></td>
 <td><p>width_p</p></td>
 <td><p>data input port</p></td>
 </tr>
-<tr class="row-odd"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>v_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
 </tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>width_p</p></td>
+<tr class="row-even"><td><p>addr_o</p></td>
+<td><p><a href="#id1"><span class="problematic" id="id2">`</span></a>BSG_SAFE_CLOG2(width_p)-1</p></td>
 <td><p>data output port</p></td>
 </tr>
 </tbody>
@@ -958,9 +1960,9 @@
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 62%" />
-<col style="width: 24%" />
+<col style="width: 21%" />
+<col style="width: 47%" />
+<col style="width: 32%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -968,7 +1970,11 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>lo_to_hi_p</p></td>
+<td><p>control signal</p></td>
 <td><p>“inv”</p></td>
 </tr>
 </tbody>
@@ -983,7 +1989,85 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_and.jpg" src="source\image/bsg_and.jpg" />
+<div><img alt="source\image/bsg_priority_encode.jpg" src="source\image/bsg_priority_encode.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-priority-encode-one-hot-out">
+<h4>bsg_priority_encode_one_hot_out<a class="headerlink" href="#bsg-priority-encode-one-hot-out" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This module encodes by one-hot and outputs the input data.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 16%" />
+<col style="width: 28%" />
+<col style="width: 47%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>v_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 47%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>“inv”</p></td>
+</tr>
+<tr class="row-odd"><td><p>lo_to_hi_p</p></td>
+<td><p>control signal</p></td>
+<td><p>“inv”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_priority_encode_one_hot_out.jpg" src="source\image/bsg_priority_encode_one_hot_out.jpg" />
 </div></blockquote>
 </li>
 </ul>
@@ -1213,7 +2297,7 @@
 </tr>
 <tr class="row-odd"><td><p>sparse_els_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id2"><span class="problematic" id="id3">`</span></a>BSG_COUNTONES_SYNTH(pattern_els_p)</p></td>
+<td><p><a href="#id3"><span class="problematic" id="id4">`</span></a>BSG_COUNTONES_SYNTH(pattern_els_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1376,6 +2460,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="buffer-unit">
+<h3>Buffer Unit<a class="headerlink" href="#buffer-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-buf">
 <h4>bsg_buf<a class="headerlink" href="#bsg-buf" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -1520,6 +2607,87 @@
 </li>
 </ul>
 </div>
+<div class="section" id="bsg-clkbuf">
+<h4>bsg_clkbuf<a class="headerlink" href="#bsg-clkbuf" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This module is a buffer.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>i</p></td>
+<td><p>width_p</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 53%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width.</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>harden_p</p></td>
+<td><p>use harden IP or not</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>strength_p</p></td>
+<td><p>no</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_clkbuf.jpg" src="source\image/bsg_clkbuf.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bsg">
+<h3>bsg<a class="headerlink" href="#bsg" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-concentrate-static">
 <h4>bsg_concentrate_static<a class="headerlink" href="#bsg-concentrate-static" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -1579,7 +2747,7 @@
 </tr>
 <tr class="row-even"><td><p>set_els_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id4"><span class="problematic" id="id5">`</span></a>BSG_COUNTONES_SYNTH(pattern_els_p)</p></td>
+<td><p><a href="#id5"><span class="problematic" id="id6">`</span></a>BSG_COUNTONES_SYNTH(pattern_els_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1598,6 +2766,167 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="id7">
+<h3>bsg<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bsg-circular-ptr">
+<h4>bsg_circular_ptr<a class="headerlink" href="#bsg-circular-ptr" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This module implements a circular pointer that can be incremented by at most max_add_p and points to slots_p slots.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>add_i</p></td>
+<td><p>$clog2(max_add_p+1)</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
+<td><p>o</p></td>
+<td><p>ptr_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+<tr class="row-even"><td><p>n_o</p></td>
+<td><p>ptr_width_lp</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>slots_p</p></td>
+<td><p>output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_add_p</p></td>
+<td><p>input data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>ptr_width_lp</p></td>
+<td><p>output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_circular_ptr.jpg" src="source\image/bsg_circular_ptr.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bsg-clkgate-optional">
+<h4>bsg_clkgate_optional<a class="headerlink" href="#bsg-clkgate-optional" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is an integrated clock cell using a negative latch and an AND gate.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 34%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>INPUT</p></td>
+<td><p>en_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-even"><td><p>bypass_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>gated_clock_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_clkgate_optional.jpg" src="source\image/bsg_clkgate_optional.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="counter-unit">
+<h3>Counter Unit<a class="headerlink" href="#counter-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-counter-clear-up">
 <h4>bsg_counter_clear_up<a class="headerlink" href="#bsg-counter-clear-up" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -1668,11 +2997,11 @@
 </tr>
 <tr class="row-odd"><td><p>init_val_p</p></td>
 <td><p>set the initial value of the count</p></td>
-<td><p><a href="#id6"><span class="problematic" id="id7">`</span></a>BSG_UNDEFINED_IN_SIM(‘0)</p></td>
+<td><p><a href="#id8"><span class="problematic" id="id9">`</span></a>BSG_UNDEFINED_IN_SIM(‘0)</p></td>
 </tr>
 <tr class="row-even"><td><p>ptr_width_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id8"><span class="problematic" id="id9">`</span></a>BSG_SAFE_CLOG2(max_val_p+1)</p></td>
+<td><p><a href="#id10"><span class="problematic" id="id11">`</span></a>BSG_SAFE_CLOG2(max_val_p+1)</p></td>
 </tr>
 <tr class="row-odd"><td><p>disable_overflow_warning_p</p></td>
 <td><p>overflow signal</p></td>
@@ -2113,7 +3442,7 @@
 </tr>
 <tr class="row-even"><td><p>ptr_width_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id10"><span class="problematic" id="id11">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
+<td><p><a href="#id12"><span class="problematic" id="id13">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2205,7 +3534,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_max_val_lp</p></td>
 <td><p>input and output data width</p></td>
-<td><p><a href="#id12"><span class="problematic" id="id13">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
+<td><p><a href="#id14"><span class="problematic" id="id15">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2393,7 +3722,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_max_val_lp</p></td>
 <td><p>input and output data width</p></td>
-<td><p><a href="#id14"><span class="problematic" id="id15">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
+<td><p><a href="#id16"><span class="problematic" id="id17">`</span></a>BSG_SAFE_CLOG2(max_val_p)</p></td>
 </tr>
 <tr class="row-even"><td><p>reset_val_p</p></td>
 <td><p>reset value</p></td>
@@ -2493,11 +3822,11 @@
 </tr>
 <tr class="row-odd"><td><p>step_width_lp</p></td>
 <td><p>input data width</p></td>
-<td><p><a href="#id16"><span class="problematic" id="id17">`</span></a>BSG_WIDTH(max_step_p)</p></td>
+<td><p><a href="#id18"><span class="problematic" id="id19">`</span></a>BSG_WIDTH(max_step_p)</p></td>
 </tr>
 <tr class="row-even"><td><p>ptr_width_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id18"><span class="problematic" id="id19">`</span></a>BSG_WIDTH(max_val_p)</p></td>
+<td><p><a href="#id20"><span class="problematic" id="id21">`</span></a>BSG_WIDTH(max_val_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2593,11 +3922,11 @@
 </tr>
 <tr class="row-odd"><td><p>step_width_lp</p></td>
 <td><p>input data width</p></td>
-<td><p><a href="#id20"><span class="problematic" id="id21">`</span></a>BSG_WIDTH(max_step_p)</p></td>
+<td><p><a href="#id22"><span class="problematic" id="id23">`</span></a>BSG_WIDTH(max_step_p)</p></td>
 </tr>
 <tr class="row-even"><td><p>ptr_width_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id22"><span class="problematic" id="id23">`</span></a>BSG_WIDTH(max_val_p)</p></td>
+<td><p><a href="#id24"><span class="problematic" id="id25">`</span></a>BSG_WIDTH(max_val_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2645,7 +3974,7 @@
 </tr>
 <tr class="row-odd"><td><p>OUTPUT</p></td>
 <td><p>num_zero_o</p></td>
-<td><p><a href="#id24"><span class="problematic" id="id25">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
+<td><p><a href="#id26"><span class="problematic" id="id27">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
 <td><p>data output port</p></td>
 </tr>
 </tbody>
@@ -2686,6 +4015,92 @@
 </li>
 </ul>
 </div>
+<div class="section" id="bsg-cycle-counter">
+<h4>bsg_cycle_counter<a class="headerlink" href="#bsg-cycle-counter" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a loop counter.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 23%" />
+<col style="width: 20%" />
+<col style="width: 47%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>OUTPUT</p></td>
+<td><p>ctr_r_o</p></td>
+<td><p>width_p</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>i_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>o_els_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-even"><td><p>width_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_cycle_counter.jpg" src="source\image/bsg_cycle_counter.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="crossbar-unit">
+<h3>Crossbar Unit<a class="headerlink" href="#crossbar-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-crossbar-control-basic-o-by-i">
 <h4>bsg_crossbar_control_basic_o_by_i<a class="headerlink" href="#bsg-crossbar-control-basic-o-by-i" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -2771,7 +4186,7 @@
 </tr>
 <tr class="row-even"><td><p>lg_o_els_lp</p></td>
 <td><p>input data width</p></td>
-<td><p><a href="#id26"><span class="problematic" id="id27">`</span></a>BSG_SAFE_CLOG2(o_els_p)</p></td>
+<td><p><a href="#id28"><span class="problematic" id="id29">`</span></a>BSG_SAFE_CLOG2(o_els_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2872,89 +4287,9 @@
 </li>
 </ul>
 </div>
-<div class="section" id="bsg-cycle-counter">
-<h4>bsg_cycle_counter<a class="headerlink" href="#bsg-cycle-counter" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a loop counter.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 23%" />
-<col style="width: 20%" />
-<col style="width: 47%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td><p>CLOCK</p></td>
-<td><p>clk_i</p></td>
-<td><p>1</p></td>
-<td><p>clock input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>RESET</p></td>
-<td><p>reset_i</p></td>
-<td><p>1</p></td>
-<td><p>reset input port</p></td>
-</tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
-<td><p>ctr_r_o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 29%" />
-<col style="width: 35%" />
-<col style="width: 36%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>i_els_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>-1</p></td>
-</tr>
-<tr class="row-odd"><td><p>o_els_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>-1</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>-1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_cycle_counter.jpg" src="source\image/bsg_cycle_counter.jpg" />
-</div></blockquote>
-</li>
-</ul>
 </div>
+<div class="section" id="dff-unit">
+<h3>Dff Unit<a class="headerlink" href="#dff-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-dff">
 <h4>bsg_dff<a class="headerlink" href="#bsg-dff" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -3888,6 +5223,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="decode-unit">
+<h3>Decode Unit<a class="headerlink" href="#decode-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-decode">
 <h4>bsg_decode<a class="headerlink" href="#bsg-decode" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -3912,7 +5250,7 @@
 </tr>
 <tr class="row-even"><td><p>INPUT</p></td>
 <td><p>i</p></td>
-<td><p><a href="#id28"><span class="problematic" id="id29">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+<td><p><a href="#id30"><span class="problematic" id="id31">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
 <td><p>data input port</p></td>
 </tr>
 <tr class="row-odd"><td><p>OUTPUT</p></td>
@@ -3982,7 +5320,7 @@
 </tr>
 <tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
 <td><p>i</p></td>
-<td><p><a href="#id30"><span class="problematic" id="id31">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
+<td><p><a href="#id32"><span class="problematic" id="id33">`</span></a>BSG_SAFE_CLOG2(num_out_p)</p></td>
 <td><p>data input port</p></td>
 </tr>
 <tr class="row-odd"><td><p>v_i</p></td>
@@ -4032,94 +5370,6 @@
 </li>
 </ul>
 </div>
-<div class="section" id="bsg-defines">
-<h4>bsg_defines<a class="headerlink" href="#bsg-defines" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a file containing the required macro definition.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="bsg-edge-detect">
-<h4>bsg_edge_detect<a class="headerlink" href="#bsg-edge-detect" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This unit produces the fall edge.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 17%" />
-<col style="width: 59%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td><p>CLOCK</p></td>
-<td><p>clk_i</p></td>
-<td><p>1</p></td>
-<td><p>clock input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>RESET</p></td>
-<td><p>reset_i</p></td>
-<td><p>1</p></td>
-<td><p>reset input port</p></td>
-</tr>
-<tr class="row-even"><td><p>INPUT</p></td>
-<td><p>sig_i</p></td>
-<td><p>1</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>OUTPUT</p></td>
-<td><p>detect_o</p></td>
-<td><p>1</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>falling_not_rising_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>0</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_edge_detect.jpg" src="source\image/bsg_edge_detect.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
 <div class="section" id="bsg-encode-one-hot">
 <h4>bsg_encode_one_hot<a class="headerlink" href="#bsg-encode-one-hot" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -4149,7 +5399,7 @@
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
 <td><p>addr_o</p></td>
-<td><p><a href="#id32"><span class="problematic" id="id33">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
+<td><p><a href="#id34"><span class="problematic" id="id35">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
 <td><p>data output port</p></td>
 </tr>
 <tr class="row-even"><td><p>v_o</p></td>
@@ -4346,6 +5596,103 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="defines">
+<h3>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bsg-defines">
+<h4>bsg_defines<a class="headerlink" href="#bsg-defines" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This is a file containing the required macro definition.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="edge">
+<h3>Edge<a class="headerlink" href="#edge" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bsg-edge-detect">
+<h4>bsg_edge_detect<a class="headerlink" href="#bsg-edge-detect" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Overview</p>
+<p>This unit produces the fall edge.</p>
+</li>
+</ul>
+<ul>
+<li><p>Port</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TYPE</p></td>
+<td><p>NAME</p></td>
+<td><p>WIDTH</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>CLOCK</p></td>
+<td><p>clk_i</p></td>
+<td><p>1</p></td>
+<td><p>clock input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESET</p></td>
+<td><p>reset_i</p></td>
+<td><p>1</p></td>
+<td><p>reset input port</p></td>
+</tr>
+<tr class="row-even"><td><p>INPUT</p></td>
+<td><p>sig_i</p></td>
+<td><p>1</p></td>
+<td><p>data input port</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
+<td><p>detect_o</p></td>
+<td><p>1</p></td>
+<td><p>data output port</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Parameter</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>DESCRIPTION</p></td>
+<td><p>DEFAULT</p></td>
+</tr>
+<tr class="row-even"><td><p>falling_not_rising_p</p></td>
+<td><p>input and output data width</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li><p>Assertion</p>
+<p>None</p>
+</li>
+</ul>
+<ul>
+<li><p>Details &amp; Circuit structure</p>
+<blockquote>
+<div><img alt="source\image/bsg_edge_detect.jpg" src="source\image/bsg_edge_detect.jpg" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="hash-bank">
+<h3>Hash Bank<a class="headerlink" href="#hash-bank" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-hash-bank">
 <h4>bsg_hash_bank<a class="headerlink" href="#bsg-hash-bank" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -4413,7 +5760,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_banks_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id34"><span class="problematic" id="id35">`</span></a>BSG_SAFE_CLOG2(banks_p)</p></td>
+<td><p><a href="#id36"><span class="problematic" id="id37">`</span></a>BSG_SAFE_CLOG2(banks_p)</p></td>
 </tr>
 <tr class="row-even"><td><p>debug_lp</p></td>
 <td><p>debug signal</p></td>
@@ -4503,7 +5850,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_banks_lp</p></td>
 <td><p>input data width</p></td>
-<td><p><a href="#id36"><span class="problematic" id="id37">`</span></a>BSG_SAFE_CLOG2(banks_p)</p></td>
+<td><p><a href="#id38"><span class="problematic" id="id39">`</span></a>BSG_SAFE_CLOG2(banks_p)</p></td>
 </tr>
 <tr class="row-even"><td><p>debug_lp</p></td>
 <td><p>debug signal</p></td>
@@ -4526,6 +5873,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="divider-unit">
+<h3>Divider Unit<a class="headerlink" href="#divider-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-idiv-iterative">
 <h4>bsg_idiv_iterative<a class="headerlink" href="#bsg-idiv-iterative" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -4639,7 +5989,7 @@
 </tr>
 <tr class="row-even"><td><p>id_width_lp</p></td>
 <td><p>input and output data width</p></td>
-<td><p><a href="#id38"><span class="problematic" id="id39">`</span></a>BSG_SAFE_CLOG2(els_p)</p></td>
+<td><p><a href="#id40"><span class="problematic" id="id41">`</span></a>BSG_SAFE_CLOG2(els_p)</p></td>
 </tr>
 <tr class="row-odd"><td><p>els_p</p></td>
 <td><p>internal signal width</p></td>
@@ -4662,120 +6012,9 @@
 </li>
 </ul>
 </div>
-<div class="section" id="bsg-imul-iterative">
-<h4>bsg_imul_iterative<a class="headerlink" href="#bsg-imul-iterative" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is an 32bit integer iterative multiplier, capable of signed &amp; unsigned multiplication.</p>
-</li>
-</ul>
-<ul class="simple">
-<li><p>Port</p></li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>32</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_imul_iterative.jpg" src="source\image/bsg_imul_iterative.jpg" />
-</div></blockquote>
-</li>
-</ul>
 </div>
-<div class="section" id="bsg-inv">
-<h4>bsg_inv<a class="headerlink" href="#bsg-inv" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is an inverter.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 17%" />
-<col style="width: 59%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td><p>INPUT</p></td>
-<td><p>i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>“inv”</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_inv.jpg" src="source\image/bsg_inv.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
+<div class="section" id="comparator-unit">
+<h3>Comparator Unit<a class="headerlink" href="#comparator-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-less-than">
 <h4>bsg_less_than<a class="headerlink" href="#bsg-less-than" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -4846,6 +6085,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="linear-shifter">
+<h3>Linear Shifter<a class="headerlink" href="#linear-shifter" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-level-shift-up-down-sink">
 <h4>bsg_level_shift_up_down_sink<a class="headerlink" href="#bsg-level-shift-up-down-sink" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -5082,6 +6324,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="arbitration-unit">
+<h3>Arbitration Unit<a class="headerlink" href="#arbitration-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-locking-arb-fixed">
 <h4>bsg_locking_arb_fixed<a class="headerlink" href="#bsg-locking-arb-fixed" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -5169,6 +6414,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="pseudo-tree">
+<h3>pseudo_tree<a class="headerlink" href="#pseudo-tree" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-lru-pseudo-tree-backup">
 <h4>bsg_lru_pseudo_tree_backup<a class="headerlink" href="#bsg-lru-pseudo-tree-backup" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -5228,7 +6476,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_ways_lp</p></td>
 <td><p>cyclic variable</p></td>
-<td><p><a href="#id40"><span class="problematic" id="id41">`</span></a>BSG_SAFE_CLOG2(ways_p)</p></td>
+<td><p><a href="#id42"><span class="problematic" id="id43">`</span></a>BSG_SAFE_CLOG2(ways_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -5306,7 +6554,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_ways_lp</p></td>
 <td><p>input data width</p></td>
-<td><p><a href="#id42"><span class="problematic" id="id43">`</span></a>BSG_SAFE_CLOG2(ways_p)</p></td>
+<td><p><a href="#id44"><span class="problematic" id="id45">`</span></a>BSG_SAFE_CLOG2(ways_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -5380,7 +6628,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_ways_lp</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id44"><span class="problematic" id="id45">`</span></a>BSG_SAFE_CLOG2(ways_p)</p></td>
+<td><p><a href="#id46"><span class="problematic" id="id47">`</span></a>BSG_SAFE_CLOG2(ways_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -5399,316 +6647,11 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="selector-unit">
+<h3>Selector Unit<a class="headerlink" href="#selector-unit" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-mux">
 <h4>bsg_mux<a class="headerlink" href="#bsg-mux" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This module is a pipeline multiplier.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 20%" />
-<col style="width: 15%" />
-<col style="width: 54%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
-<td><p>x_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>y_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>signed_i</p></td>
-<td><p>1</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>OUTPUT</p></td>
-<td><p>z_o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>harden_p</p></td>
-<td><p>use harden IP or not</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_mux.jpg" src="source\image/bsg_mux.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="bsg-mul-array">
-<h4>bsg_mul_array<a class="headerlink" href="#bsg-mul-array" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This module is a pipelined unsigned array multiplier.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 20%" />
-<col style="width: 15%" />
-<col style="width: 54%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td><p>CLOCK</p></td>
-<td><p>clk_i</p></td>
-<td><p>1</p></td>
-<td><p>clock input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>RESET</p></td>
-<td><p>rst_i</p></td>
-<td><p>1</p></td>
-<td><p>reset input port</p></td>
-</tr>
-<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
-<td><p>v_i</p></td>
-<td><p>1</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>a_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>2*width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>pipeline_p</p></td>
-<td><p>selcet signal</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_mul_array.jpg" src="source\image/bsg_mul_array.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="bsg-mul-array-row">
-<h4>bsg_mul_array_row<a class="headerlink" href="#bsg-mul-array-row" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This module is a pipelined adder.</p>
-</li>
-</ul>
-<ul class="simple">
-<li><p>Port</p></li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>row_idx_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-even"><td><p>pipeline_p</p></td>
-<td><p>selcet signal</p></td>
-<td><p>“inv”</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_mul_array_row.jpg" src="source\image/bsg_mul_array_row.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="bsg-mul-pipelined">
-<h4>bsg_mul_pipelined<a class="headerlink" href="#bsg-mul-pipelined" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a library of multipliers.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="bsg-mul-synth">
-<h4>bsg_mul_synth<a class="headerlink" href="#bsg-mul-synth" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is synthesized multiplier.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 17%" />
-<col style="width: 59%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
-<td><p>a_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>2*width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
-<td><p>“inv”</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_mul_synth.jpg" src="source\image/bsg_mul_synth.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="id46">
-<h4>bsg_mux<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p>Overview</p>
 <p>This is a selector.</p>
@@ -5778,7 +6721,7 @@
 </tr>
 <tr class="row-even"><td><p>lg_els_lp</p></td>
 <td><p>input  data width</p></td>
-<td><p><a href="#id47"><span class="problematic" id="id48">`</span></a>BSG_SAFE_CLOG2(els_p)</p></td>
+<td><p><a href="#id48"><span class="problematic" id="id49">`</span></a>BSG_SAFE_CLOG2(els_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -6102,7 +7045,7 @@
 </tr>
 <tr class="row-even"><td><p>lg_els_lp</p></td>
 <td><p>input data width.</p></td>
-<td><p><a href="#id49"><span class="problematic" id="id50">`</span></a>BSG_SAFE_CLOG2(els_p)</p></td>
+<td><p><a href="#id50"><span class="problematic" id="id51">`</span></a>BSG_SAFE_CLOG2(els_p)</p></td>
 </tr>
 </tbody>
 </table>
@@ -6289,244 +7232,9 @@
 </li>
 </ul>
 </div>
-<div class="section" id="bsg-nand">
-<h4>bsg_nand<a class="headerlink" href="#bsg-nand" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a two-input NAND gate.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 62%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
-<td><p>a_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 62%" />
-<col style="width: 24%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>harden_p</p></td>
-<td><p>use harden IP or not</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_nand.jpg" src="source\image/bsg_nand.jpg" />
-</div></blockquote>
-</li>
-</ul>
 </div>
-<div class="section" id="bsg-nor2">
-<h4>bsg_nor2<a class="headerlink" href="#bsg-nor2" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a two-input NOR gate.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 62%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
-<td><p>a_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 62%" />
-<col style="width: 24%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>harden_p</p></td>
-<td><p>use harden IP or not</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_nor2.jpg" src="source\image/bsg_nor2.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="bsg-nor3">
-<h4>bsg_nor3<a class="headerlink" href="#bsg-nor3" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a three-input NOR gate.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 62%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
-<td><p>a_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>c_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 62%" />
-<col style="width: 24%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>harden_p</p></td>
-<td><p>use harden IP or not</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_nor3.jpg" src="source\image/bsg_nor3.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
+<div class="section" id="pg-tree">
+<h3>pg_tree<a class="headerlink" href="#pg-tree" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-pg-tree">
 <h4>bsg_pg_tree<a class="headerlink" href="#bsg-pg-tree" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -6637,6 +7345,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="popcount">
+<h3>popcount<a class="headerlink" href="#popcount" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-popcount">
 <h4>bsg_popcount<a class="headerlink" href="#bsg-popcount" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -6707,162 +7418,9 @@
 </li>
 </ul>
 </div>
-<div class="section" id="bsg-priority-encode">
-<h4>bsg_priority_encode<a class="headerlink" href="#bsg-priority-encode" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>The function of this module is to encode and output the input data twice.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 16%" />
-<col style="width: 28%" />
-<col style="width: 47%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td><p>INPUT</p></td>
-<td><p>i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
-<td><p>v_o</p></td>
-<td><p>1</p></td>
-<td><p>data output port</p></td>
-</tr>
-<tr class="row-even"><td><p>addr_o</p></td>
-<td><p><a href="#id51"><span class="problematic" id="id52">`</span></a>BSG_SAFE_CLOG2(width_p)-1</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 47%" />
-<col style="width: 32%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>lo_to_hi_p</p></td>
-<td><p>control signal</p></td>
-<td><p>“inv”</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_priority_encode.jpg" src="source\image/bsg_priority_encode.jpg" />
-</div></blockquote>
-</li>
-</ul>
 </div>
-<div class="section" id="bsg-priority-encode-one-hot-out">
-<h4>bsg_priority_encode_one_hot_out<a class="headerlink" href="#bsg-priority-encode-one-hot-out" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This module encodes by one-hot and outputs the input data.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 16%" />
-<col style="width: 28%" />
-<col style="width: 47%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td><p>INPUT</p></td>
-<td><p>i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><p>OUTPUT</p></td>
-<td><p>v_o</p></td>
-<td><p>1</p></td>
-<td><p>data output port</p></td>
-</tr>
-<tr class="row-even"><td><p>o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 47%" />
-<col style="width: 32%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>lo_to_hi_p</p></td>
-<td><p>control signal</p></td>
-<td><p>“inv”</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_priority_encode_one_hot_out.jpg" src="source\image/bsg_priority_encode_one_hot_out.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
+<div class="section" id="reduce">
+<h3>reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-reduce">
 <h4>bsg_reduce<a class="headerlink" href="#bsg-reduce" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7035,6 +7593,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="rotate-shift">
+<h3>Rotate Shift<a class="headerlink" href="#rotate-shift" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-rotate-left">
 <h4>bsg_rotate_left<a class="headerlink" href="#bsg-rotate-left" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7063,7 +7624,7 @@
 <td><p>data input port</p></td>
 </tr>
 <tr class="row-odd"><td><p>rot_i</p></td>
-<td><p><a href="#id53"><span class="problematic" id="id54">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
+<td><p><a href="#id52"><span class="problematic" id="id53">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
 <td><p>data input port</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
@@ -7137,7 +7698,7 @@
 <td><p>data input port</p></td>
 </tr>
 <tr class="row-odd"><td><p>rot_i</p></td>
-<td><p><a href="#id55"><span class="problematic" id="id56">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
+<td><p><a href="#id54"><span class="problematic" id="id55">`</span></a>BSG_SAFE_CLOG2(width_p)</p></td>
 <td><p>data input port</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
@@ -7212,7 +7773,7 @@
 </tr>
 <tr class="row-odd"><td><p>lg_inputs_p</p></td>
 <td><p>output data width</p></td>
-<td><p><a href="#id57"><span class="problematic" id="id58">`</span></a>BSG_SAFE_CLOG2(inputs_p)</p></td>
+<td><p><a href="#id56"><span class="problematic" id="id57">`</span></a>BSG_SAFE_CLOG2(inputs_p)</p></td>
 </tr>
 <tr class="row-even"><td><p>reset_on_sr_p</p></td>
 <td><p>selcet signal</p></td>
@@ -7239,6 +7800,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="scan">
+<h3>scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-scan">
 <h4>bsg_scan<a class="headerlink" href="#bsg-scan" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7329,6 +7893,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="cyclically-arbitration">
+<h3>cyclically arbitration<a class="headerlink" href="#cyclically-arbitration" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-strobe">
 <h4>bsg_strobe<a class="headerlink" href="#bsg-strobe" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7411,6 +7978,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="swap">
+<h3>swap<a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-swap">
 <h4>bsg_swap<a class="headerlink" href="#bsg-swap" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7485,6 +8055,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="edge-detection">
+<h3>edge detection<a class="headerlink" href="#edge-detection" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-thermometer-count">
 <h4>bsg_thermometer_count<a class="headerlink" href="#bsg-thermometer-count" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7555,6 +8128,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="output-fixed-bit-value">
+<h3>output fixed bit value<a class="headerlink" href="#output-fixed-bit-value" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-tiehi">
 <h4>bsg_tiehi<a class="headerlink" href="#bsg-tiehi" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7693,6 +8269,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="output-switching-position">
+<h3>output switching position<a class="headerlink" href="#output-switching-position" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-transpose">
 <h4>bsg_transpose<a class="headerlink" href="#bsg-transpose" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7767,6 +8346,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="unconcentrate">
+<h3>unconcentrate<a class="headerlink" href="#unconcentrate" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-unconcentrate-static">
 <h4>bsg_unconcentrate_static<a class="headerlink" href="#bsg-unconcentrate-static" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7818,7 +8400,7 @@
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
 <td><p>input data width.</p></td>
-<td><p><a href="#id59"><span class="problematic" id="id60">`</span></a>BSG_COUNTONES_SYNTH(pattern_els_p)</p></td>
+<td><p><a href="#id58"><span class="problematic" id="id59">`</span></a>BSG_COUNTONES_SYNTH(pattern_els_p)</p></td>
 </tr>
 <tr class="row-odd"><td><p>pattern_els_p</p></td>
 <td><p>output data width.</p></td>
@@ -7841,6 +8423,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="reset">
+<h3>reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-wait-after-reset">
 <h4>bsg_wait_after_reset<a class="headerlink" href="#bsg-wait-after-reset" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7915,6 +8500,9 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="wait-cycles">
+<h3>wait cycles<a class="headerlink" href="#wait-cycles" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="bsg-wait-cycles">
 <h4>bsg_wait_cycles<a class="headerlink" href="#bsg-wait-cycles" title="Permalink to this headline">¶</a></h4>
 <ul>
@@ -7993,162 +8581,6 @@
 </li>
 </ul>
 </div>
-<div class="section" id="bsg-xnor">
-<h4>bsg_xnor<a class="headerlink" href="#bsg-xnor" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a two-input XNOR gate.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 62%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
-<td><p>a_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 62%" />
-<col style="width: 24%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>harden_p</p></td>
-<td><p>use harden IP or not</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_xnor.jpg" src="source\image/bsg_xnor.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="bsg-xor">
-<h4>bsg_xor<a class="headerlink" href="#bsg-xor" title="Permalink to this headline">¶</a></h4>
-<ul>
-<li><p>Overview</p>
-<p>This is a two-input XOR gate.</p>
-</li>
-</ul>
-<ul>
-<li><p>Port</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 62%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>TYPE</p></td>
-<td><p>NAME</p></td>
-<td><p>WIDTH</p></td>
-<td><p>DESCRIPTION</p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
-<td><p>a_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-odd"><td><p>b_i</p></td>
-<td><p>width_p</p></td>
-<td><p>data input port</p></td>
-</tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
-<td><p>o</p></td>
-<td><p>width_p</p></td>
-<td><p>data output port</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Parameter</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 62%" />
-<col style="width: 24%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>NAME</p></td>
-<td><p>DESCRIPTION</p></td>
-<td><p>DEFAULT</p></td>
-</tr>
-<tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
-<td><p>“inv”</p></td>
-</tr>
-<tr class="row-odd"><td><p>harden_p</p></td>
-<td><p>use harden IP or not</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<ul>
-<li><p>Assertion</p>
-<p>None</p>
-</li>
-</ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="source\image/bsg_xor.jpg" src="source\image/bsg_xor.jpg" />
-</div></blockquote>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -8162,7 +8594,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="bsg_mem.html" class="btn btn-neutral float-left" title="bsg_mem电路库" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bsg_mem.html" class="btn btn-neutral float-left" title="bsg_mem Circuit Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

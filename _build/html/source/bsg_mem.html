@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>bsg_mem电路库 &mdash; BasejumpDoc  documentation</title>
+  <title>bsg_mem Circuit Library &mdash; BasejumpDoc  documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bsg_misc电路库" href="bsg_misc.html" />
-    <link rel="prev" title="bsg_dataflow电路库" href="bsg_dataflow.html" /> 
+    <link rel="next" title="bsg_misc Circuit Library" href="bsg_misc.html" />
+    <link rel="prev" title="bsg_dataflow Circuit Library" href="bsg_dataflow.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,49 +84,52 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="bsg_dataflow.html">bsg_dataflow电路库</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">bsg_mem电路库</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-cam-1r1w">bsg_cam_1r1w</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-cam-1r1w-replacement">bsg_cam_1r1w_replacement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-cam-1r1w-sync">bsg_cam_1r1w_sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-cam-1r1w-sync-unmanaged">bsg_cam_1r1w_sync_unmanaged</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-cam-1r1w-tag-array">bsg_cam_1r1w_tag_array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-cam-1r1w-unmanaged">bsg_cam_1r1w_unmanaged</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1r1w">bsg_mem_1r1w</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1r1w-one-hot">bsg_mem_1r1w_one_hot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1r1w-sync">bsg_mem_1r1w_sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1r1w-sync-mask-write-bit">bsg_mem_1r1w_sync_mask_write_bit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1r1w-sync-mask-write-bit-synth">bsg_mem_1r1w_sync_mask_write_bit_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1r1w-sync-mask-write-var">bsg_mem_1r1w_sync_mask_write_var</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-synth">bsg_mem_1rw_sync_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1r1w-synth">bsg_mem_1r1w_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync">bsg_mem_1rw_sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-banked">bsg_mem_1rw_sync_banked</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-bit">bsg_mem_1rw_sync_mask_write_bit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-bit-banked">bsg_mem_1rw_sync_mask_write_bit_banked</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-bit-synth">bsg_mem_1rw_sync_mask_write_bit_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-byte">bsg_mem_1rw_sync_mask_write_byte</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-byte-banked">bsg_mem_1rw_sync_mask_write_byte_banked</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-byte-synth">bsg_mem_1rw_sync_mask_write_byte_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-var">bsg_mem_1rw_sync_mask_write_var</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-2r1w">bsg_mem_2r1w</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-2r1w-sync">bsg_mem_2r1w_sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-2r1w-sync-synth">bsg_mem_2r1w_sync_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-2r1w-synth">bsg_mem_2r1w_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-3r1w">bsg_mem_3r1w</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-3r1w-sync">bsg_mem_3r1w_sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-3r1w-sync-synth">bsg_mem_3r1w_sync_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-3r1w-synth">bsg_mem_3r1w_synth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-banked-crossbar">bsg_mem_banked_crossbar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-mem-multiport">bsg_mem_multiport</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-nonsynth-mem-1r1w-sync-dma">bsg_nonsynth_mem_1r1w_sync_dma</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-nonsynth-mem-1r1w-sync-mask-write-byte-dma">bsg_nonsynth_mem_1r1w_sync_mask_write_byte_dma</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-nonsynth-mem-1rw-sync-assoc">bsg_nonsynth_mem_1rw_sync_assoc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-assoc">bsg_nonsynth_mem_1rw_sync_mask_write_byte_assoc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-dma">bsg_nonsynth_mem_1rw_sync_mask_write_byte_dma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsg_dataflow.html">bsg_dataflow Circuit Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">bsg_mem Circuit Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#memory">memory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-cam-1r1w">bsg_cam_1r1w</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-cam-1r1w-replacement">bsg_cam_1r1w_replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-cam-1r1w-sync">bsg_cam_1r1w_sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-cam-1r1w-sync-unmanaged">bsg_cam_1r1w_sync_unmanaged</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-cam-1r1w-tag-array">bsg_cam_1r1w_tag_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-cam-1r1w-unmanaged">bsg_cam_1r1w_unmanaged</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1r1w">bsg_mem_1r1w</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1r1w-one-hot">bsg_mem_1r1w_one_hot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1r1w-sync">bsg_mem_1r1w_sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1r1w-sync-mask-write-bit">bsg_mem_1r1w_sync_mask_write_bit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1r1w-sync-mask-write-bit-synth">bsg_mem_1r1w_sync_mask_write_bit_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1r1w-sync-mask-write-var">bsg_mem_1r1w_sync_mask_write_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-synth">bsg_mem_1rw_sync_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1r1w-synth">bsg_mem_1r1w_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync">bsg_mem_1rw_sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-banked">bsg_mem_1rw_sync_banked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-bit">bsg_mem_1rw_sync_mask_write_bit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-bit-banked">bsg_mem_1rw_sync_mask_write_bit_banked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-bit-synth">bsg_mem_1rw_sync_mask_write_bit_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-byte">bsg_mem_1rw_sync_mask_write_byte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-byte-banked">bsg_mem_1rw_sync_mask_write_byte_banked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-byte-synth">bsg_mem_1rw_sync_mask_write_byte_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-1rw-sync-mask-write-var">bsg_mem_1rw_sync_mask_write_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-2r1w">bsg_mem_2r1w</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-2r1w-sync">bsg_mem_2r1w_sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-2r1w-sync-synth">bsg_mem_2r1w_sync_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-2r1w-synth">bsg_mem_2r1w_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-3r1w">bsg_mem_3r1w</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-3r1w-sync">bsg_mem_3r1w_sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-3r1w-sync-synth">bsg_mem_3r1w_sync_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-3r1w-synth">bsg_mem_3r1w_synth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-banked-crossbar">bsg_mem_banked_crossbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-mem-multiport">bsg_mem_multiport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-nonsynth-mem-1r1w-sync-dma">bsg_nonsynth_mem_1r1w_sync_dma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-nonsynth-mem-1r1w-sync-mask-write-byte-dma">bsg_nonsynth_mem_1r1w_sync_mask_write_byte_dma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-nonsynth-mem-1rw-sync-assoc">bsg_nonsynth_mem_1rw_sync_assoc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-assoc">bsg_nonsynth_mem_1rw_sync_mask_write_byte_assoc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-dma">bsg_nonsynth_mem_1rw_sync_mask_write_byte_dma</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bsg_misc.html">bsg_misc电路库</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bsg_misc.html">bsg_misc Circuit Library</a></li>
 </ul>
 
             
@@ -173,7 +176,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>bsg_mem电路库</li>
+      <li>bsg_mem Circuit Library</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,10 +195,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bsg-mem">
-<h1>bsg_mem电路库<a class="headerlink" href="#bsg-mem" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="bsg-mem-circuit-library">
+<h1>bsg_mem Circuit Library<a class="headerlink" href="#bsg-mem-circuit-library" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="memory">
+<h2>memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="bsg-cam-1r1w">
-<h2>bsg_cam_1r1w<a class="headerlink" href="#bsg-cam-1r1w" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_cam_1r1w<a class="headerlink" href="#bsg-cam-1r1w" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This is an asynchronous read 1r1w content addressable memory module.</p>
@@ -311,7 +316,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-cam-1r1w-replacement">
-<h2>bsg_cam_1r1w_replacement<a class="headerlink" href="#bsg-cam-1r1w-replacement" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_cam_1r1w_replacement<a class="headerlink" href="#bsg-cam-1r1w-replacement" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module maintains the replacement policy for an array of elements.</p>
@@ -403,7 +408,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-cam-1r1w-sync">
-<h2>bsg_cam_1r1w_sync<a class="headerlink" href="#bsg-cam-1r1w-sync" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_cam_1r1w_sync<a class="headerlink" href="#bsg-cam-1r1w-sync" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This is synchnronous read 1r1w content addressable memory module.</p>
@@ -519,7 +524,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-cam-1r1w-sync-unmanaged">
-<h2>bsg_cam_1r1w_sync_unmanaged<a class="headerlink" href="#bsg-cam-1r1w-sync-unmanaged" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_cam_1r1w_sync_unmanaged<a class="headerlink" href="#bsg-cam-1r1w-sync-unmanaged" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This is synchnronous read 1r1w content addressable memory module,and each entry has a tag and a data associated with it, and can be independently cleared and set.</p>
@@ -631,7 +636,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-cam-1r1w-tag-array">
-<h2>bsg_cam_1r1w_tag_array<a class="headerlink" href="#bsg-cam-1r1w-tag-array" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_cam_1r1w_tag_array<a class="headerlink" href="#bsg-cam-1r1w-tag-array" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is made for use in bsg_cams, managing the valids and tags for each entry.</p>
@@ -743,7 +748,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-cam-1r1w-unmanaged">
-<h2>bsg_cam_1r1w_unmanaged<a class="headerlink" href="#bsg-cam-1r1w-unmanaged" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_cam_1r1w_unmanaged<a class="headerlink" href="#bsg-cam-1r1w-unmanaged" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This is an asynchronous read 1r1w content addressable memory module, and Each entry has a tag and a data associated with it, and can be independently cleared and set.</p>
@@ -859,7 +864,7 @@
 </ul>
 </div>
 <div class="section" id="bsg-mem-1r1w">
-<h2>bsg_mem_1r1w<a class="headerlink" href="#bsg-mem-1r1w" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1r1w<a class="headerlink" href="#bsg-mem-1r1w" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is 1 read-port and 1 write-port ram, and reads are asynchronous.</p>
@@ -972,7 +977,7 @@ assert ((w_reset_i === ‘X) || (w_reset_i === 1’b1) || !(r_addr_i == w_addr_i
 </ul>
 </div>
 <div class="section" id="bsg-mem-1r1w-one-hot">
-<h2>bsg_mem_1r1w_one_hot<a class="headerlink" href="#bsg-mem-1r1w-one-hot" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1r1w_one_hot<a class="headerlink" href="#bsg-mem-1r1w-one-hot" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is 1 read-port and 1 write-port ram with a onehot address scheme.</p>
@@ -1065,7 +1070,7 @@ assert ((w_reset_i === ‘X) || (w_reset_i === 1’b1) || $countones(r_v_i) &lt;
 </ul>
 </div>
 <div class="section" id="bsg-mem-1r1w-sync">
-<h2>bsg_mem_1r1w_sync<a class="headerlink" href="#bsg-mem-1r1w-sync" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1r1w_sync<a class="headerlink" href="#bsg-mem-1r1w-sync" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is 1 read-port and 1 write-port ram, and reads are synchronous.</p>
@@ -1186,7 +1191,7 @@ assert ((reset_i === ‘X) || (reset_i === 1’b1) || ~(r_addr_i == w_addr_i &am
 </ul>
 </div>
 <div class="section" id="bsg-mem-1r1w-sync-mask-write-bit">
-<h2>bsg_mem_1r1w_sync_mask_write_bit<a class="headerlink" href="#bsg-mem-1r1w-sync-mask-write-bit" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1r1w_sync_mask_write_bit<a class="headerlink" href="#bsg-mem-1r1w-sync-mask-write-bit" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is 1 read-port and 1 write-port ram with mask, and reads are synchronous.</p>
@@ -1311,7 +1316,7 @@ assert ((reset_i === ‘X) || (reset_i === 1’b1) || (~(r_addr_i == w_addr_i &a
 </ul>
 </div>
 <div class="section" id="bsg-mem-1r1w-sync-mask-write-bit-synth">
-<h2>bsg_mem_1r1w_sync_mask_write_bit_synth<a class="headerlink" href="#bsg-mem-1r1w-sync-mask-write-bit-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1r1w_sync_mask_write_bit_synth<a class="headerlink" href="#bsg-mem-1r1w-sync-mask-write-bit-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is 1 read-port and 1 write-port ram with mask, and reads are synchronous. This is synth version.</p>
@@ -1431,7 +1436,7 @@ assert ((reset_i === ‘X) || (reset_i === 1’b1) || (~(r_addr_i == w_addr_i &a
 </ul>
 </div>
 <div class="section" id="bsg-mem-1r1w-sync-mask-write-var">
-<h2>bsg_mem_1r1w_sync_mask_write_var<a class="headerlink" href="#bsg-mem-1r1w-sync-mask-write-var" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1r1w_sync_mask_write_var<a class="headerlink" href="#bsg-mem-1r1w-sync-mask-write-var" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is 1 read-port and 1 write-port ram, and reads are synchronous.</p>
@@ -1556,7 +1561,7 @@ assert ((reset_i === ‘X) || (reset_i === 1’b1) || ~(r_addr_i == w_addr_i &am
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-synth">
-<h2>bsg_mem_1rw_sync_synth<a class="headerlink" href="#bsg-mem-1rw-sync-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_synth<a class="headerlink" href="#bsg-mem-1rw-sync-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is synchronous 1-port ram, and only one read or one write may be done per cycle.</p>
@@ -1660,7 +1665,7 @@ assert ((reset_i === ‘X) || (reset_i === 1’b1) || ~(r_addr_i == w_addr_i &am
 </ul>
 </div>
 <div class="section" id="bsg-mem-1r1w-synth">
-<h2>bsg_mem_1r1w_synth<a class="headerlink" href="#bsg-mem-1r1w-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1r1w_synth<a class="headerlink" href="#bsg-mem-1r1w-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is 1 read-port, 1 write-port ram for synthesizable internal version, and reads are asynchronous.</p>
@@ -1772,7 +1777,7 @@ assert ((reset_i === ‘X) || (reset_i === 1’b1) || ~(r_addr_i == w_addr_i &am
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync">
-<h2>bsg_mem_1rw_sync<a class="headerlink" href="#bsg-mem-1rw-sync" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync<a class="headerlink" href="#bsg-mem-1rw-sync" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is synchronous 1-port ram, and only one read or one write may be done per cycle.</p>
@@ -1880,7 +1885,7 @@ assert ((reset_i === ‘X) || (reset_i === 1’b1) || ~(r_addr_i == w_addr_i &am
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-banked">
-<h2>bsg_mem_1rw_sync_banked<a class="headerlink" href="#bsg-mem-1rw-sync-banked" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_banked<a class="headerlink" href="#bsg-mem-1rw-sync-banked" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module can be used for breaking a big SRAM block intosmaller blocks.</p>
@@ -2009,7 +2014,7 @@ assert(width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-mask-write-bit">
-<h2>bsg_mem_1rw_sync_mask_write_bit<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-bit" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_mask_write_bit<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-bit" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a synchronous 1-port ram with mask, and only one read or one write may be done per cycle.</p>
@@ -2121,7 +2126,7 @@ assert(width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-mask-write-bit-banked">
-<h2>bsg_mem_1rw_sync_mask_write_bit_banked<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-bit-banked" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_mask_write_bit_banked<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-bit-banked" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <blockquote>
@@ -2256,7 +2261,7 @@ assert(width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-mask-write-bit-synth">
-<h2>bsg_mem_1rw_sync_mask_write_bit_synth<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-bit-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_mask_write_bit_synth<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-bit-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <blockquote>
@@ -2366,7 +2371,7 @@ assert(width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-mask-write-byte">
-<h2>bsg_mem_1rw_sync_mask_write_byte<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-byte" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_mask_write_byte<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-byte" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <blockquote>
@@ -2484,7 +2489,7 @@ assert(width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-mask-write-byte-banked">
-<h2>bsg_mem_1rw_sync_mask_write_byte_banked<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-byte-banked" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_mask_write_byte_banked<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-byte-banked" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <blockquote>
@@ -2628,7 +2633,7 @@ assert(data_width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-mask-write-byte-synth">
-<h2>bsg_mem_1rw_sync_mask_write_byte_synth<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-byte-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_mask_write_byte_synth<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-byte-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <blockquote>
@@ -2742,7 +2747,7 @@ assert(data_width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-1rw-sync-mask-write-var">
-<h2>bsg_mem_1rw_sync_mask_write_var<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-var" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_1rw_sync_mask_write_var<a class="headerlink" href="#bsg-mem-1rw-sync-mask-write-var" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a synchronous 1-port ram with mask, and only one read or one write may be done per cycle.</p>
@@ -2854,7 +2859,7 @@ assert(data_width_p % num_width_bank_p == 0);</p>
 </ul>
 </div>
 <div class="section" id="bsg-mem-2r1w">
-<h2>bsg_mem_2r1w<a class="headerlink" href="#bsg-mem-2r1w" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_2r1w<a class="headerlink" href="#bsg-mem-2r1w" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 2 read-port and 1 write-port ram, and reads are asynchronous.</p>
@@ -2976,7 +2981,7 @@ assert (!(r1_addr_i == w_addr_i &amp;&amp; w_v_i &amp;&amp; r1_v_i &amp;&amp; !r
 </ul>
 </div>
 <div class="section" id="bsg-mem-2r1w-sync">
-<h2>bsg_mem_2r1w_sync<a class="headerlink" href="#bsg-mem-2r1w-sync" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_2r1w_sync<a class="headerlink" href="#bsg-mem-2r1w-sync" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 2 read-port and 1 write-port ram, and reads are synchronous.</p>
@@ -3106,7 +3111,7 @@ assert (~(r1_addr_i == w_addr_i &amp;&amp; w_v_i &amp;&amp; r1_v_i &amp;&amp; !r
 </ul>
 </div>
 <div class="section" id="bsg-mem-2r1w-sync-synth">
-<h2>bsg_mem_2r1w_sync_synth<a class="headerlink" href="#bsg-mem-2r1w-sync-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_2r1w_sync_synth<a class="headerlink" href="#bsg-mem-2r1w-sync-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 2 read-port and 1 write-port ram, and reads are synchronous.This is synthesize version.</p>
@@ -3230,7 +3235,7 @@ assert (~(r1_addr_i == w_addr_i &amp;&amp; w_v_i &amp;&amp; r1_v_i &amp;&amp; !r
 </ul>
 </div>
 <div class="section" id="bsg-mem-2r1w-synth">
-<h2>bsg_mem_2r1w_synth<a class="headerlink" href="#bsg-mem-2r1w-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_2r1w_synth<a class="headerlink" href="#bsg-mem-2r1w-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 2 read-port and 1 write-port ram, and reads are asynchronous.</p>
@@ -3350,7 +3355,7 @@ assert (~(r1_addr_i == w_addr_i &amp;&amp; w_v_i &amp;&amp; r1_v_i &amp;&amp; !r
 </ul>
 </div>
 <div class="section" id="bsg-mem-3r1w">
-<h2>bsg_mem_3r1w<a class="headerlink" href="#bsg-mem-3r1w" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_3r1w<a class="headerlink" href="#bsg-mem-3r1w" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 3 read-port, 1 write-port ram, and reads are asynchronous.</p>
@@ -3483,7 +3488,7 @@ assert (~(r1_addr_i == w_addr_i &amp;&amp; w_v_i &amp;&amp; r1_v_i &amp;&amp; !r
 </ul>
 </div>
 <div class="section" id="bsg-mem-3r1w-sync">
-<h2>bsg_mem_3r1w_sync<a class="headerlink" href="#bsg-mem-3r1w-sync" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_3r1w_sync<a class="headerlink" href="#bsg-mem-3r1w-sync" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 3 read-port, 1 write-port ram, and reads are synchronous.</p>
@@ -3626,7 +3631,7 @@ assert (~(r2_addr_i == w_addr_i &amp;&amp; r2_v_i &amp;&amp; !read_write_same_ad
 </ul>
 </div>
 <div class="section" id="bsg-mem-3r1w-sync-synth">
-<h2>bsg_mem_3r1w_sync_synth<a class="headerlink" href="#bsg-mem-3r1w-sync-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_3r1w_sync_synth<a class="headerlink" href="#bsg-mem-3r1w-sync-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 3 read-port, 1 write-port ram, and reads are synchronous.</p>
@@ -3762,7 +3767,7 @@ assert (~(r2_addr_i == w_addr_i &amp;&amp; r2_v_i &amp;&amp; !read_write_same_ad
 </ul>
 </div>
 <div class="section" id="bsg-mem-3r1w-synth">
-<h2>bsg_mem_3r1w_synth<a class="headerlink" href="#bsg-mem-3r1w-synth" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_3r1w_synth<a class="headerlink" href="#bsg-mem-3r1w-synth" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a 3 read-port, 1 write-port ram, and reads are synchronous.</p>
@@ -3894,7 +3899,7 @@ assert (~(r2_addr_i == w_addr_i &amp;&amp; r2_v_i &amp;&amp; !read_write_same_ad
 </ul>
 </div>
 <div class="section" id="bsg-mem-banked-crossbar">
-<h2>bsg_mem_banked_crossbar<a class="headerlink" href="#bsg-mem-banked-crossbar" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_banked_crossbar<a class="headerlink" href="#bsg-mem-banked-crossbar" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a bank mem banked crossbar.</p>
@@ -4006,7 +4011,7 @@ assert (~(r2_addr_i == w_addr_i &amp;&amp; r2_v_i &amp;&amp; !read_write_same_ad
 </ul>
 </div>
 <div class="section" id="bsg-mem-multiport">
-<h2>bsg_mem_multiport<a class="headerlink" href="#bsg-mem-multiport" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_mem_multiport<a class="headerlink" href="#bsg-mem-multiport" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is a N read-port and M write-port ram, and reads are asynchronous.</p>
@@ -4128,7 +4133,7 @@ assert (~(w_addr_i[i] == w_addr_i[j] &amp;&amp; w_v_i[i] &amp;&amp; w_v_i[j] &am
 </ul>
 </div>
 <div class="section" id="bsg-nonsynth-mem-1r1w-sync-dma">
-<h2>bsg_nonsynth_mem_1r1w_sync_dma<a class="headerlink" href="#bsg-nonsynth-mem-1r1w-sync-dma" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_nonsynth_mem_1r1w_sync_dma<a class="headerlink" href="#bsg-nonsynth-mem-1r1w-sync-dma" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is synchronous 1 read-port and 1 write-port mem.</p>
@@ -4252,7 +4257,7 @@ assert (~(w_addr_i[i] == w_addr_i[j] &amp;&amp; w_v_i[i] &amp;&amp; w_v_i[j] &am
 </ul>
 </div>
 <div class="section" id="bsg-nonsynth-mem-1r1w-sync-mask-write-byte-dma">
-<h2>bsg_nonsynth_mem_1r1w_sync_mask_write_byte_dma<a class="headerlink" href="#bsg-nonsynth-mem-1r1w-sync-mask-write-byte-dma" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_nonsynth_mem_1r1w_sync_mask_write_byte_dma<a class="headerlink" href="#bsg-nonsynth-mem-1r1w-sync-mask-write-byte-dma" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is synchronous 1 read-port and 1 write-port mem with mask.</p>
@@ -4380,7 +4385,7 @@ assert (~(w_addr_i[i] == w_addr_i[j] &amp;&amp; w_v_i[i] &amp;&amp; w_v_i[j] &am
 </ul>
 </div>
 <div class="section" id="bsg-nonsynth-mem-1rw-sync-assoc">
-<h2>bsg_nonsynth_mem_1rw_sync_assoc<a class="headerlink" href="#bsg-nonsynth-mem-1rw-sync-assoc" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_nonsynth_mem_1rw_sync_assoc<a class="headerlink" href="#bsg-nonsynth-mem-1rw-sync-assoc" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is for simulating arbitrarily large memories.</p>
@@ -4476,7 +4481,7 @@ assert (~(w_addr_i[i] == w_addr_i[j] &amp;&amp; w_v_i[i] &amp;&amp; w_v_i[j] &am
 </ul>
 </div>
 <div class="section" id="bsg-nonsynth-mem-1rw-sync-mask-write-byte-assoc">
-<h2>bsg_nonsynth_mem_1rw_sync_mask_write_byte_assoc<a class="headerlink" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-assoc" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_nonsynth_mem_1rw_sync_mask_write_byte_assoc<a class="headerlink" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-assoc" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module is for simulating arbitrarily large memories with mask.</p>
@@ -4580,7 +4585,7 @@ assert (~(w_addr_i[i] == w_addr_i[j] &amp;&amp; w_v_i[i] &amp;&amp; w_v_i[j] &am
 </ul>
 </div>
 <div class="section" id="bsg-nonsynth-mem-1rw-sync-mask-write-byte-dma">
-<h2>bsg_nonsynth_mem_1rw_sync_mask_write_byte_dma<a class="headerlink" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-dma" title="Permalink to this headline">¶</a></h2>
+<h3>bsg_nonsynth_mem_1rw_sync_mask_write_byte_dma<a class="headerlink" href="#bsg-nonsynth-mem-1rw-sync-mask-write-byte-dma" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
 <p>This module implements synchronous byte mem with mask.</p>
@@ -4704,6 +4709,7 @@ assert (~(w_addr_i[i] == w_addr_i[j] &amp;&amp; w_v_i[i] &amp;&amp; w_v_i[j] &am
 </ul>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -4713,10 +4719,10 @@ assert (~(w_addr_i[i] == w_addr_i[j] &amp;&amp; w_v_i[i] &amp;&amp; w_v_i[j] &am
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="bsg_misc.html" class="btn btn-neutral float-right" title="bsg_misc电路库" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="bsg_misc.html" class="btn btn-neutral float-right" title="bsg_misc Circuit Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="bsg_dataflow.html" class="btn btn-neutral float-left" title="bsg_dataflow电路库" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bsg_dataflow.html" class="btn btn-neutral float-left" title="bsg_dataflow Circuit Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
