@@ -1,6 +1,6 @@
-########################
-bsg_misc Circuit Library
-########################
+########
+bsg_misc
+########
 
 Circuit Description Framework
 *****************************
