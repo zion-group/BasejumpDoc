@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-#######
-bsg_mem
-#######
-=======
 ########
 bsg_mem
 ########
->>>>>>> 96aa682... change port parameter
 
 CAM Releted Unit
 ================

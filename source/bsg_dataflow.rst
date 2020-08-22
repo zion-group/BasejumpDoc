@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-############
-bsg_dataflow
-############
-=======
 #############
 bsg_dataflow 
 #############
->>>>>>> 96aa682... change port parameter
 
 tag
 ====

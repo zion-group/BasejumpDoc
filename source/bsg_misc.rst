@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-########
-bsg_misc
-########
-=======
 #########
 bsg_misc 
 #########
->>>>>>> 96aa682... change port parameter
 
 Multiplier Releted Unint 
 ========================
