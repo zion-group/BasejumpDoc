@@ -2002,18 +2002,18 @@ bsg_dff
 
 * Overview
 
-  This dff is positive edge triggered with no reset.
+  This is a dff with no reset Port. It is triggered by positive edge of the clock. 
 
 * Parameter
   
   +------------+-----------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                     |       DEFAULT       |
   +------------+-----------------------------------------------------+---------------------+ 
-  |  width_p   | input and output data width                         |         -1          |    
+  |  width_p   | data width of input and output port                 |         -1          |    
   +------------+-----------------------------------------------------+---------------------+
   |  harden_p  | use harden IP or not                                |          0          |
   +------------+-----------------------------------------------------+---------------------+
-  | strength_p | set drive strength                                  |          1          |
+  | strength_p | drive strength                                      |          1          |
   +------------+-----------------------------------------------------+---------------------+
 
 - Port
