@@ -4175,7 +4175,7 @@
 <h3>bsg_dff_en<a class="headerlink" href="#bsg-dff-en" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with enable Port but no reset Port. It is triggered by positive edge of the clock.</p>
+<p>This is a dff with enable Port. It is triggered by positive edge of the clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4427,7 +4427,7 @@
 <h3>bsg_dff_negedge_reset<a class="headerlink" href="#bsg-dff-negedge-reset" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This dff is negative edge triggered, D-TYPE flip-flop with active-high synchronous reset.</p>
+<p>This is a dff with reset Port.It is triggered by negative edge of the clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4442,7 +4442,7 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
+<td><p>data width of input and output port</p></td>
 <td><p>-1</p></td>
 </tr>
 <tr class="row-odd"><td><p>harden_p</p></td>
@@ -4498,8 +4498,7 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_dff_negedge_reset.jpg" src="source\image/bsg_dff_negedge_reset.jpg" />
-</div></blockquote>
+<div><img alt="../_images/bsg_dff_negedge_reset.svg" src="../_images/bsg_dff_negedge_reset.svg" /></div></blockquote>
 </li>
 </ul>
 </div>
@@ -4507,7 +4506,7 @@
 <h3>bsg_dff_gatestack<a class="headerlink" href="#bsg-dff-gatestack" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>The cell provides three ports(i0,i1,o) and consists of width_p flip-flops in parallel.This dff gatestack is positive edge of i1 triggered.</p>
+<p>This is a dff with no reset Port.It is triggered by positive edge of the i1.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4522,7 +4521,7 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
+<td><p>data width of input and output port</p></td>
 <td><p>“inv”</p></td>
 </tr>
 <tr class="row-odd"><td><p>harden_p</p></td>
@@ -4572,8 +4571,7 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_dff_gatestack.jpg" src="source\image/bsg_dff_gatestack.jpg" />
-</div></blockquote>
+<div><img alt="../_images/bsg_dff_gatestack.svg" src="../_images/bsg_dff_gatestack.svg" /></div></blockquote>
 </li>
 </ul>
 </div>
@@ -4581,7 +4579,7 @@
 <h3>bsg_dff_chain<a class="headerlink" href="#bsg-dff-chain" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>Chain several Dffs together. A Dff chain consists of  width_p serial <a class="reference internal" href="#bsg-dff">bsg_dff</a>. It is positive edge triggered.</p>
+<p>This is a dff with no reset Port.It is triggered by positive edge of the clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4596,7 +4594,7 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width.</p></td>
+<td><p>data width of input and output port</p></td>
 <td><p>-1</p></td>
 </tr>
 <tr class="row-odd"><td><p>num_stages_p</p></td>
@@ -4647,8 +4645,7 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_dff_chain.jpg" src="source\image/bsg_dff_chain.jpg" />
-</div></blockquote>
+<div><img alt="../_images/bsg_dff_chain.svg" src="../_images/bsg_dff_chain.svg" /></div></blockquote>
 </li>
 </ul>
 </div>
@@ -4656,7 +4653,7 @@
 <h3>bsg_dff_en_bypass<a class="headerlink" href="#bsg-dff-en-bypass" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>The output of this module is always equal to the input.</p>
+<p>This is a dff with enable Port.It is triggered by positive edge of the clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4671,7 +4668,7 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
+<td><p>data width of input and output port</p></td>
 <td><p>“inv”</p></td>
 </tr>
 <tr class="row-odd"><td><p>harden_p</p></td>
@@ -4679,7 +4676,7 @@
 <td><p>1</p></td>
 </tr>
 <tr class="row-even"><td><p>strength_p</p></td>
-<td><p>set drive strength</p></td>
+<td><p>drive strength</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -4730,8 +4727,7 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_dff_en_bypass.jpg" src="source\image/bsg_dff_en_bypass.jpg" />
-</div></blockquote>
+<div><img alt="../_images/bsg_dff_en_bypass.svg" src="../_images/bsg_dff_en_bypass.svg" /></div></blockquote>
 </li>
 </ul>
 </div>
@@ -4739,7 +4735,7 @@
 <h3>bsg_dff_reset_en_bypass<a class="headerlink" href="#bsg-dff-reset-en-bypass" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>The output of this module is always equal to the input and comes with a reset signal.</p>
+<p>This is a dff with enable and reset Port.It is triggered by positive edge of the clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4754,7 +4750,7 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
+<td><p>data width of input and output port</p></td>
 <td><p>“inv”</p></td>
 </tr>
 <tr class="row-odd"><td><p>harden_p</p></td>
@@ -4818,8 +4814,7 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_dff_reset_en_bypass.jpg" src="source\image/bsg_dff_reset_en_bypass.jpg" />
-</div></blockquote>
+<div><img alt="source\image/bsg_dff_reset_en_bypass.svg" src="source\image/bsg_dff_reset_en_bypass.svg" /></div></blockquote>
 </li>
 </ul>
 </div>
@@ -4827,7 +4822,7 @@
 <h3>bsg_dff_reset_set_clear<a class="headerlink" href="#bsg-dff-reset-set-clear" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>Output different results in different modes of the ‘clear_over_set_p’ signal.</p>
+<p>This is a dff with set and reset and clear Port.It is triggered by positive edge of the clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4842,7 +4837,7 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
+<td><p>data width of input and output port</p></td>
 <td><p>“inv”</p></td>
 </tr>
 <tr class="row-odd"><td><p>clear_over_set_p</p></td>
@@ -4902,8 +4897,7 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_dff_reset_set_clear.jpg" src="source\image/bsg_dff_reset_set_clear.jpg" />
-</div></blockquote>
+<div><img alt="../_images/bsg_dff_reset_set_clear.svg" src="../_images/bsg_dff_reset_set_clear.svg" /></div></blockquote>
 </li>
 </ul>
 </div>
@@ -4911,7 +4905,7 @@
 <h3>bsg_dlatch<a class="headerlink" href="#bsg-dlatch" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This unit module is a latch.</p>
+<p>This is a dlatch with no reset Port.It is triggered by high of the clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4926,7 +4920,7 @@
 <td><p>DEFAULT</p></td>
 </tr>
 <tr class="row-even"><td><p>width_p</p></td>
-<td><p>input and output data width</p></td>
+<td><p>data width of input and output port</p></td>
 <td><p>“inv”</p></td>
 </tr>
 <tr class="row-odd"><td><p>i_know_this_is_a_bad_idea_p</p></td>
@@ -4977,8 +4971,7 @@
 <ul>
 <li><p>Details &amp; Circuit structure</p>
 <blockquote>
-<div><img alt="source\image/bsg_dlatch.jpg" src="source\image/bsg_dlatch.jpg" />
-</div></blockquote>
+<div><img alt="../_images/bsg_dlatch.svg" src="../_images/bsg_dlatch.svg" /></div></blockquote>
 </li>
 </ul>
 </div>

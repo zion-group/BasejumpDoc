@@ -2042,7 +2042,7 @@ bsg_dff_en
 
 * Overview
 
-  This is a dff with enable Port but no reset Port. It is triggered by positive edge of the clock.
+  This is a dff with enable Port. It is triggered by positive edge of the clock.
 
 * Parameter
   
@@ -2170,14 +2170,14 @@ bsg_dff_negedge_reset
 
 * Overview
 
-  This dff is negative edge triggered, D-TYPE flip-flop with active-high synchronous reset.
+  This is a dff with reset Port.It is triggered by negative edge of the clock.
 
 * Parameter
 
   +------------+-----------------------------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                                       |       DEFAULT       |  
   +------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p   | input and output data width                                           |         -1          |
+  |  width_p   | data width of input and output port                                   |         -1          |
   +------------+-----------------------------------------------------------------------+---------------------+
   |  harden_p  | use harden IP or not                                                  |          0          |
   +------------+-----------------------------------------------------------------------+---------------------+
@@ -2202,7 +2202,7 @@ bsg_dff_negedge_reset
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dff_negedge_reset.jpg
+   .. image :: image/bsg_dff_negedge_reset.svg
 
 ******************
 bsg_dff_gatestack
@@ -2210,14 +2210,14 @@ bsg_dff_gatestack
 
 * Overview
 
-  The cell provides three ports(i0,i1,o) and consists of width_p flip-flops in parallel.This dff gatestack is positive edge of i1 triggered.
+  This is a dff with no reset Port.It is triggered by positive edge of the i1.
 
 * Parameter
 
   +------------+-----------------------------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                                       |       DEFAULT       |
   +------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p   | input and output data width                                           |        "inv"        |
+  |  width_p   | data width of input and output port                                   |        "inv"        |
   +------------+-----------------------------------------------------------------------+---------------------+
   |  harden_p  | use harden IP or not                                                  |           1         |
   +------------+-----------------------------------------------------------------------+---------------------+
@@ -2240,7 +2240,7 @@ bsg_dff_gatestack
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dff_gatestack.jpg
+   .. image :: image/bsg_dff_gatestack.svg
 
 **************
 bsg_dff_chain
@@ -2248,14 +2248,14 @@ bsg_dff_chain
 
 * Overview
 
-  Chain several Dffs together. A Dff chain consists of  width_p serial `bsg_dff`_. It is positive edge triggered.
+  This is a dff with no reset Port.It is triggered by positive edge of the clock.
 
 * Parameter
 
   +------------+-----------------------------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                                       |       DEFAULT       |
   +------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p   | input and output data width.                                          |         -1          |
+  |  width_p   | data width of input and output port                                   |         -1          |
   +------------+-----------------------------------------------------------------------+---------------------+ 
   |num_stages_p| stage number of `bsg_dff`_                                            |          1          |
   +------------+-----------------------------------------------------------------------+---------------------+
@@ -2278,7 +2278,7 @@ bsg_dff_chain
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dff_chain.jpg
+   .. image :: image/bsg_dff_chain.svg
 
 ******************
 bsg_dff_en_bypass
@@ -2286,18 +2286,18 @@ bsg_dff_en_bypass
 
 * Overview
 
-  The output of this module is always equal to the input.
+  This is a dff with enable Port.It is triggered by positive edge of the clock.
 
 * Parameter
 
   +------------+-----------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                     |       DEFAULT       |
   +------------+-----------------------------------------------------+---------------------+ 
-  |  width_p   | input and output data width                         |       "inv"         |
+  |  width_p   | data width of input and output port                 |       "inv"         |
   +------------+-----------------------------------------------------+---------------------+
   |  harden_p  | use harden IP or not                                |         1           |
   +------------+-----------------------------------------------------+---------------------+
-  | strength_p | set drive strength                                  |         1           |
+  | strength_p | drive strength                                      |         1           |
   +------------+-----------------------------------------------------+---------------------+
 
 - Port
@@ -2320,7 +2320,7 @@ bsg_dff_en_bypass
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dff_en_bypass.jpg
+   .. image :: image/bsg_dff_en_bypass.svg
   
 ************************
 bsg_dff_reset_en_bypass
@@ -2328,14 +2328,14 @@ bsg_dff_reset_en_bypass
 
 * Overview
 
-  The output of this module is always equal to the input and comes with a reset signal.
+  This is a dff with enable and reset Port.It is triggered by positive edge of the clock.
 
 * Parameter
 
   +------------+-----------------------------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                                       |       DEFAULT       |
   +------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p   | input and output data width                                           |        "inv"        |      
+  |  width_p   | data width of input and output port                                   |        "inv"        |      
   +------------+-----------------------------------------------------------------------+---------------------+
   |  harden_p  | use harden IP or not                                                  |          0          |
   +------------+-----------------------------------------------------------------------+---------------------+
@@ -2364,7 +2364,7 @@ bsg_dff_reset_en_bypass
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dff_reset_en_bypass.jpg   
+   .. image :: image/bsg_dff_reset_en_bypass.svg   
    
 ************************
 bsg_dff_reset_set_clear
@@ -2372,14 +2372,14 @@ bsg_dff_reset_set_clear
 
 * Overview
 
-  Output different results in different modes of the 'clear_over_set_p' signal.
+  This is a dff with set and reset and clear Port.It is triggered by positive edge of the clock.
 
 * Parameter
 
   +--------------------+-----------------------------------------------------------------------+---------------------+
   |   NAME             |     DESCRIPTION                                                       |       DEFAULT       |
   +--------------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p           | input and output data width                                           |        "inv"        |      
+  |  width_p           | data width of input and output port                                   |        "inv"        |      
   +--------------------+-----------------------------------------------------------------------+---------------------+
   | clear_over_set_p   | set the set signal and clear signal priorities                        |          0          |
   +--------------------+-----------------------------------------------------------------------+---------------------+
@@ -2406,7 +2406,7 @@ bsg_dff_reset_set_clear
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dff_reset_set_clear.jpg 
+   .. image :: image/bsg_dff_reset_set_clear.svg
 
 ************
 bsg_dlatch
@@ -2414,14 +2414,14 @@ bsg_dlatch
 
 * Overview
 
-  This unit module is a latch.
+  This is a dlatch with no reset Port.It is triggered by high of the clock.
 
 * Parameter
 
   +-------------------------------+-----------------------------------------+---------------------+
   |   NAME                        |     DESCRIPTION                         |       DEFAULT       |
   +-------------------------------+-----------------------------------------+---------------------+ 
-  |  width_p                      | input and output data width             |        "inv"        |      
+  |  width_p                      | data width of input and output port     |        "inv"        |      
   +-------------------------------+-----------------------------------------+---------------------+
   | i_know_this_is_a_bad_idea_p   | choose whether to show fatal            |          0          |
   +-------------------------------+-----------------------------------------+---------------------+
@@ -2444,7 +2444,7 @@ bsg_dlatch
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dlatch.jpg
+   .. image :: image/bsg_dlatch.svg
 
 Decode Releted Unit
 ===================
