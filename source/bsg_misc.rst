@@ -2208,19 +2208,19 @@ bsg_dff_negedge_reset
 bsg_dff_gatestack
 ******************
 
-* Overview
+- Overview
 
   This is a set of DFFs. Each DFF is triggered by the positive edge of the its corresponding bit of i1. There is no reset or enable signals for these DFFs.
 
-* Parameter
+- Parameter
 
-  +------------+-----------------------------------------------------------------------+---------------------+
-  |   NAME     |     DESCRIPTION                                                       |       DEFAULT       |
-  +------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p   | data width of input and output port                                   |        "inv"        |
-  +------------+-----------------------------------------------------------------------+---------------------+
-  |  harden_p  | use harden IP or not                                                  |           1         |
-  +------------+-----------------------------------------------------------------------+---------------------+
+  +------------+-----------------------------------------------------+---------------------+
+  |   NAME     |     DESCRIPTION                                     |       DEFAULT       |
+  +------------+-----------------------------------------------------+---------------------+ 
+  |  width_p   | data width of input and output port                 |        "inv"        |
+  +------------+-----------------------------------------------------+---------------------+
+  |  harden_p  | use harden IP or not                                |           1         |
+  +------------+-----------------------------------------------------+---------------------+
 
 - Port
   
@@ -2238,7 +2238,7 @@ bsg_dff_gatestack
   
   None
 
-* Details & Circuit structure
+- Details & Circuit structure
   
   .. image :: image/bsg_dff_gatestack.svg
 
