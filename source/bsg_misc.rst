@@ -2000,11 +2000,11 @@ Dff Releted Unit
 bsg_dff
 ********
 
-* Overview
+- Overview
 
-  This is a dff with no reset Port. It is triggered by positive edge of the clock. 
+  This is a DFF without other ports. It is triggered by the positive edge of input clock. 
 
-* Parameter
+- Parameter
   
   +------------+-----------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                     |       DEFAULT       |
@@ -2021,20 +2021,20 @@ bsg_dff
   +---------+---------+----------+---------------------------------------------+
   |  TYPE   |   NAME  |   WIDTH  |    DESCRIPTION                              |
   +---------+---------+----------+---------------------------------------------+ 
-  |  CLOCK  |  clk_i  |     1    | clock port                                  |
+  |  CLOCK  |  clk_i  |     1    | input clock                                 |
   +---------+---------+----------+---------------------------------------------+
-  |  INPUT  | data_i  | width_p  | data input port                             |
+  |  INPUT  | data_i  | width_p  | input data                                  |
   +---------+---------+----------+---------------------------------------------+
-  | OUTPUT  | data_o  | width_p  | data output port                            |
+  | OUTPUT  | data_o  | width_p  | output data                                 |
   +---------+---------+----------+---------------------------------------------+
 
 - Assertion
   
   None
   
-* Details & Circuit structure
+- Details & Circuit structure
 
-   .. image :: image/bsg_dff.svg
+  .. image :: image/bsg_dff.svg
 
 ***********
 bsg_dff_en
