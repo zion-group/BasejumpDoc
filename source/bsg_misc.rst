@@ -2040,11 +2040,11 @@ bsg_dff
 bsg_dff_en
 ***********
 
-* Overview
+- Overview
 
-  This is a dff with enable Port. It is triggered by positive edge of the clock.
+  This is a dff with an enable port. It is triggered by the positive edge of input clock.
 
-* Parameter
+- Parameter
   
   +------------+-----------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                     |       DEFAULT       |
@@ -2061,64 +2061,64 @@ bsg_dff_en
   +---------+---------+----------+--------------------------------------------+
   |  TYPE   |   NAME  |   WIDTH  |                 DESCRIPTION                |
   +---------+---------+----------+--------------------------------------------+ 
-  |  CLOCK  |  clk_i  |     1    | clock port                                 |
+  |  CLOCK  |  clk_i  |     1    | input clock                                |
   +---------+---------+----------+--------------------------------------------+
-  |         | data_i  | width_p  | data input port                            |
+  |         | data_i  | width_p  | input data                                 |
   +  INPUT  +---------+----------+--------------------------------------------+
-  |         |  en_i   |     1    | enable port                                |
+  |         |  en_i   |     1    | enable                                     |
   +---------+---------+----------+--------------------------------------------+
-  | OUTPUT  | data_o  | width_p  | data output port                           |
+  | OUTPUT  | data_o  | width_p  | output data                                |
   +---------+---------+----------+--------------------------------------------+
 
 - Assertion
   
   None
 
-* Details & Circuit structure
+- Details & Circuit structure
   
-   .. image :: image/bsg_dff_en.svg
+  .. image :: image/bsg_dff_en.svg
 
 **************
 bsg_dff_reset
 **************
 
-* Overview
+- Overview
 
-  This is a dff with reset Port.It is triggered by positive edge of the clock.
+  This is a dff with a reset port. It is triggered by the positive edge of input clock. The reset is synchronous and active high.
 
-* Parameter
+- Parameter
   
-  +------------+-----------------------------------------------------------------------+---------------------+
-  |   NAME     |     DESCRIPTION                                                       |       DEFAULT       |
-  +------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p   | data width of input and output port                                   |         -1          |
-  +------------+-----------------------------------------------------------------------+---------------------+
-  |  harden_p  | use harden IP or not                                                  |          0          |
-  +------------+-----------------------------------------------------------------------+---------------------+
-  |reset_val_p | Bit extended reset_val_p is initial value of data_o after reset       |          0          |
-  +------------+-----------------------------------------------------------------------+---------------------+  
+  +------------+----------------------------------------------+---------------------+
+  |   NAME     |     DESCRIPTION                              |       DEFAULT       |
+  +------------+----------------------------------------------+---------------------+ 
+  |  width_p   | data width of input and output port          |         -1          |
+  +------------+----------------------------------------------+---------------------+
+  |  harden_p  | use harden IP or not                         |          0          |
+  +------------+----------------------------------------------+---------------------+
+  |reset_val_p | initial value of data_o if reset             |          0          |
+  +------------+----------------------------------------------+---------------------+  
 
 - Port
   
   +---------+---------+----------+--------------------------------------------+
   |  TYPE   |   NAME  |   WIDTH  |                 DESCRIPTION                |
   +---------+---------+----------+--------------------------------------------+ 
-  |  CLOCK  |  clk_i  |     1    | clock port                                 |
+  |  CLOCK  |  clk_i  |     1    | input clock                                |
   +---------+---------+----------+--------------------------------------------+
-  |  RESET  | reset_i |     1    | reset port                                 |
+  |  RESET  | reset_i |     1    | reset                                      |
   +---------+---------+----------+--------------------------------------------+
-  |  INPUT  | data_i  | width_p  | data input port                            |
+  |  INPUT  | data_i  | width_p  | input data                                 |
   +---------+---------+----------+--------------------------------------------+
-  | OUTPUT  | data_o  | width_p  | data output port                           |
+  | OUTPUT  | data_o  | width_p  | output data                                |
   +---------+---------+----------+--------------------------------------------+
   
 - Assertion
   
   None
   
-* Details & Circuit structure
+- Details & Circuit structure
   
-   .. image :: image/bsg_dff_reset.svg
+  .. image :: image/bsg_dff_reset.svg
 
 *****************
 bsg_dff_reset_en
