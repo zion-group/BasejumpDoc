@@ -2042,7 +2042,7 @@ bsg_dff_en
 
 - Overview
 
-  This is a dff with an enable port. It is triggered by the positive edge of input clock.
+  This is a DFF with an enable port. It is triggered by the positive edge of input clock.
 
 - Parameter
   
@@ -2084,7 +2084,7 @@ bsg_dff_reset
 
 - Overview
 
-  This is a dff with a reset port. It is triggered by the positive edge of input clock. The reset is synchronous and active high.
+  This is a DFF with a reset port. It is triggered by the positive edge of input clock. The reset is synchronous and active high.
 
 - Parameter
   
