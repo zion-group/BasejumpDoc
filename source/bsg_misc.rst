@@ -2210,7 +2210,7 @@ bsg_dff_gatestack
 
 * Overview
 
-  This is a dff with no reset Port.It is triggered by positive edge of the i1.
+  This is a set of DFFs. Each DFF is triggered by the positive edge of the its corresponding bit of i1. There is no reset or enable signals for these DFFs.
 
 * Parameter
 
@@ -2224,15 +2224,15 @@ bsg_dff_gatestack
 
 - Port
   
-  +---------+---------+----------+---------------------------------------------+
-  |  TYPE   |   NAME  |   WIDTH  |    DESCRIPTION                              |
-  +---------+---------+----------+---------------------------------------------+ 
-  |         |    i0   | width_p  | data input port                             |
-  +  INPUT  +---------+----------+---------------------------------------------+
-  |         |    i1   | width_p  | data transmission trigger port              |
-  +---------+---------+----------+---------------------------------------------+
-  | OUTPUT  |    o    | width_p  | data output port                            |
-  +---------+---------+----------+---------------------------------------------+
+  +---------+---------+----------+---------------------------------------------------------+
+  |  TYPE   |   NAME  |   WIDTH  |    DESCRIPTION                                          |
+  +---------+---------+----------+---------------------------------------------------------+ 
+  |         |    i0   | width_p  | input data                                              |
+  +  INPUT  +---------+----------+---------------------------------------------------------+
+  |         |    i1   | width_p  | data transmission trigger, clocks for each bit of input |
+  +---------+---------+----------+---------------------------------------------------------+
+  | OUTPUT  |    o    | width_p  | output data                                             |
+  +---------+---------+----------+---------------------------------------------------------+
 
 - Assertion
   
@@ -2240,7 +2240,7 @@ bsg_dff_gatestack
 
 * Details & Circuit structure
   
-   .. image :: image/bsg_dff_gatestack.svg
+  .. image :: image/bsg_dff_gatestack.svg
 
 **************
 bsg_dff_chain
