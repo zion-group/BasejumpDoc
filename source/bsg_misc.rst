@@ -2170,7 +2170,7 @@ bsg_dff_negedge_reset
 
 - Overview
 
-  This is a DFF with a reset port. It is triggered by the negative edge of input clock.  The reset is synchronous and active high.
+  This is a DFF with a reset port. It is triggered by the negative edge of input clock. The reset is synchronous and active high.
 
 - Parameter
 
@@ -2376,43 +2376,47 @@ bsg_dff_reset_en_bypass
 bsg_dff_reset_set_clear
 ************************
 
-* Overview
+- Overview
 
-  This is a dff with set and reset and clear Port.It is triggered by positive edge of the clock.
+  This is a DFF with reset, set and clear ports. It is triggered by positive edge of the clock. The reset is synchronous and active high. 
 
-* Parameter
+- Parameter
 
-  +--------------------+-----------------------------------------------------------------------+---------------------+
-  |   NAME             |     DESCRIPTION                                                       |       DEFAULT       |
-  +--------------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p           | data width of input and output port                                   |        "inv"        |      
-  +--------------------+-----------------------------------------------------------------------+---------------------+
-  | clear_over_set_p   | set the set signal and clear signal priorities                        |          0          |
-  +--------------------+-----------------------------------------------------------------------+---------------------+
+  +--------------------+----------------------------------------------------------+---------------------+
+  |   NAME             |     DESCRIPTION                                          |       DEFAULT       |
+  +--------------------+----------------------------------------------------------+---------------------+ 
+  |  width_p           | data width of input and output port                      |        "inv"        |
+  +--------------------+----------------------------------------------------------+---------------------+
+  | clear_over_set_p   | priorities of clear. If it is 1, clear is prio to set    |          0          |
+  +--------------------+----------------------------------------------------------+---------------------+
 
 - Port
   
   +---------+---------+----------+--------------------------------------------+
   |  TYPE   |   NAME  |   WIDTH  |                 DESCRIPTION                |
   +---------+---------+----------+--------------------------------------------+ 
-  |  CLOCK  |  clk_i  |     1    | clock port                                 |
+  |  CLOCK  |  clk_i  |     1    | input clock                                |
   +---------+---------+----------+--------------------------------------------+
-  |  RESET  | reset_i |     1    | reset port                                 |
+  |  RESET  | reset_i |     1    | reset                                      |
   +---------+---------+----------+--------------------------------------------+
-  |         |  set_i  | width_p  | data input port                            |
-  +  INPUT  +---------+----------+--------------------------------------------+
-  |         | clear_i | width_p  | data input port                            |
+  |         | data_i  | width_p  | input data                                 |
+  +         +---------+----------+--------------------------------------------+
+  |  INPUT  |  set_i  | width_p  | set enable                                 |
+  +         +---------+----------+--------------------------------------------+
+  |         | clear_i | width_p  | clear enable                               |
   +---------+---------+----------+--------------------------------------------+
-  | OUTPUT  | data_o  | width_p  | data output port                           |
+  | OUTPUT  | data_o  | width_p  | output data                                |
   +---------+---------+----------+--------------------------------------------+
 
 - Assertion
 
   None
 
-* Details & Circuit structure
+- Details & Circuit structure
   
-   .. image :: image/bsg_dff_reset_set_clear.svg
+  .. image :: image/bsg_dff_reset_set_clear.svg
+
+  Reset value of the DFF is '0. Each bit of the input data has a corresponding set and clear signal. If set_i[i] and clear_i[i] are both 1'b1: a) data_o[i] is 0, when clear_over_set_p is 1. b)data_o[i] is 1, when clear_over_set_p is 0.
 
 ************
 bsg_dlatch
