@@ -2288,7 +2288,7 @@ bsg_dff_en_bypass
 
 - Overview
 
-  This is a DFF with bypass lane. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.
+  This is a DFF with a bypass lane. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.
 
 - Parameter
 
@@ -2330,47 +2330,48 @@ bsg_dff_en_bypass
 bsg_dff_reset_en_bypass
 ************************
 
-* Overview
+- Overview
 
-  This is a DFF with bypass lane. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.
-  This is a dff with enable and reset Port.It is triggered by positive edge of the clock.
+  This is a DFF with a bypass lane and a reset port. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately. The reset is synchronous and active high.
+  
+- Parameter
 
-* Parameter
-
-  +------------+-----------------------------------------------------------------------+---------------------+
-  |   NAME     |     DESCRIPTION                                                       |       DEFAULT       |
-  +------------+-----------------------------------------------------------------------+---------------------+ 
-  |  width_p   | data width of input and output port                                   |        "inv"        |      
-  +------------+-----------------------------------------------------------------------+---------------------+
-  |  harden_p  | use harden IP or not                                                  |          0          |
-  +------------+-----------------------------------------------------------------------+---------------------+
-  | reset_val_p| Bit extended reset_val_p is initial value of data_o after reset       |          0          |
-  +------------+-----------------------------------------------------------------------+---------------------+
+  +------------+-------------------------------------------------+---------------------+
+  |   NAME     |     DESCRIPTION                                 |       DEFAULT       |
+  +------------+-------------------------------------------------+---------------------+ 
+  |  width_p   | data width of input and output port             |        "inv"        |      
+  +------------+-------------------------------------------------+---------------------+
+  |  harden_p  | use harden IP or not                            |          0          |
+  +------------+-------------------------------------------------+---------------------+
+  | reset_val_p| initial value of output data when reset         |          0          |
+  +------------+-------------------------------------------------+---------------------+
 
 - Port
   
   +---------+---------+----------+--------------------------------------------+
   |  TYPE   |   NAME  |   WIDTH  |                 DESCRIPTION                |
   +---------+---------+----------+--------------------------------------------+ 
-  |  CLOCK  |  clk_i  |     1    | clock port                                 |
+  |  CLOCK  |  clk_i  |     1    | input clock                                |
   +---------+---------+----------+--------------------------------------------+
-  |  RESET  | reset_i |     1    | reset port                                 |
+  |  RESET  | reset_i |     1    | reset                                      |
   +---------+---------+----------+--------------------------------------------+
-  |         | data_i  | width_p  | data input port                            |
+  |         | data_i  | width_p  | input data                                 |
   +  INPUT  +---------+----------+--------------------------------------------+
-  |         |  en_i   |     1    |  enable port                               |
+  |         |  en_i   |     1    | enable                                     |
   +---------+---------+----------+--------------------------------------------+
-  | OUTPUT  | data_o  | width_p  | data output port                           |
+  | OUTPUT  | data_o  | width_p  | output data                                |
   +---------+---------+----------+--------------------------------------------+
 
 - Assertion
 
   None
 
-* Details & Circuit structure
+- Details & Circuit structure
   
-   .. image :: image/bsg_dff_reset_en_bypass.svg   
-   
+  .. image :: image/bsg_dff_reset_en_bypass.svg   
+  
+  When enable is 1, input data is stored into the register and bypassed to the output port at the same time. The module consists of a bsg_dff_reset_en and a bypass lane.
+
 ************************
 bsg_dff_reset_set_clear
 ************************
