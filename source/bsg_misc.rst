@@ -2137,7 +2137,7 @@ bsg_dff_reset_en
   +------------+----------------------------------------------+---------------------+
   |  harden_p  | use harden IP or not                         |          0          |
   +------------+----------------------------------------------+---------------------+
-  |reset_val_p | initial value of data_o if reset             |          0          |
+  |reset_val_p | initial value of data_o when reset           |          0          |
   +------------+----------------------------------------------+---------------------+  
 
 - Port
@@ -2332,6 +2332,7 @@ bsg_dff_reset_en_bypass
 
 * Overview
 
+  This is a DFF with bypass lane. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.
   This is a dff with enable and reset Port.It is triggered by positive edge of the clock.
 
 * Parameter
