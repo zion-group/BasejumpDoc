@@ -2288,7 +2288,7 @@ bsg_dff_en_bypass
 
 - Overview
 
-  This is a DFF with bypass path. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.
+  This is a DFF with bypass lane. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.
 
 - Parameter
 
@@ -2324,7 +2324,7 @@ bsg_dff_en_bypass
   
   .. image :: image/bsg_dff_en_bypass.svg
 
-  When enable is 1, input data is stored into the register and bypassed to the output port at the same time.
+  When enable is 1, input data is stored into the register and bypassed to the output port at the same time. The module consists of a bsg_dff_en and a bypass lane.
   
 ************************
 bsg_dff_reset_en_bypass
