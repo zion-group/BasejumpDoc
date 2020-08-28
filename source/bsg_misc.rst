@@ -2280,7 +2280,7 @@ bsg_dff_chain
   
   .. image :: image/bsg_dff_chain.svg
 
-  Note that, input data will be transmitted stage by stage without any stall.
+  Note that, input data will be transmitted stage by stage without any stall. If num_stages_p is 0, input data is assigned to output port directly without any registers.
 
 ******************
 bsg_dff_en_bypass
