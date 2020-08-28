@@ -2170,7 +2170,7 @@ bsg_dff_negedge_reset
 
 - Overview
 
-  This is a DFF with a reset Port. It is triggered by the negative edge of input clock.  The reset is synchronous and active high.
+  This is a DFF with a reset port. It is triggered by the negative edge of input clock.  The reset is synchronous and active high.
 
 - Parameter
 
