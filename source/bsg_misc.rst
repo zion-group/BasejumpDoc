@@ -2422,39 +2422,41 @@ bsg_dff_reset_set_clear
 bsg_dlatch
 ************
 
-* Overview
+- Overview
 
-  This is a dlatch with no reset Port.It is triggered by high of the clock.
+  This is a dlatch. The clock is active high.
 
-* Parameter
+- Parameter
 
-  +-------------------------------+-----------------------------------------+---------------------+
-  |   NAME                        |     DESCRIPTION                         |       DEFAULT       |
-  +-------------------------------+-----------------------------------------+---------------------+ 
-  |  width_p                      | data width of input and output port     |        "inv"        |      
-  +-------------------------------+-----------------------------------------+---------------------+
-  | i_know_this_is_a_bad_idea_p   | choose whether to show fatal            |          0          |
-  +-------------------------------+-----------------------------------------+---------------------+
+  +-------------------------------+--------------------------------------------+---------------------+
+  |   NAME                        |     DESCRIPTION                            |       DEFAULT       |
+  +-------------------------------+--------------------------------------------+---------------------+ 
+  |  width_p                      | data width of input and output port        |        "inv"        |      
+  +-------------------------------+--------------------------------------------+---------------------+
+  | i_know_this_is_a_bad_idea_p   | show the necessary to instantiate a latch  |          0          |
+  +-------------------------------+--------------------------------------------+---------------------+
 
 - Port
   
   +---------+---------+----------+--------------------------------------------+
   |  TYPE   |   NAME  |   WIDTH  |                 DESCRIPTION                |
   +---------+---------+----------+--------------------------------------------+ 
-  | CLOCK   |  clk_i  |     1    | clock port                                 |
+  | CLOCK   |  clk_i  |     1    | input clock                                |
   +---------+---------+----------+--------------------------------------------+
-  | INPUT   |  data_i | width_p  | data input port                            |
+  | INPUT   |  data_i | width_p  | input data                                 |
   +---------+---------+----------+--------------------------------------------+
-  | OUTPUT  |  data_o | width_p  | data output port                           |
+  | OUTPUT  |  data_o | width_p  | output data                                |
   +---------+---------+----------+--------------------------------------------+
 
 - Assertion
 
-  None
+  * i_know_this_is_a_bad_idea_p == 0
+    
+    The default value of i_know_this_is_a_bad_idea_p is 0. If users want to instantiate a latch, it is necessary override *i_know_this_is_a_bad_idea_p* to show that the instantiation is inevitable and the user know all adverse effects.
 
-* Details & Circuit structure
+- Details & Circuit structure
   
-   .. image :: image/bsg_dlatch.svg
+  .. image :: image/bsg_dlatch.svg
 
 Decode Releted Unit
 ===================
