@@ -2280,17 +2280,17 @@ bsg_dff_chain
   
   .. image :: image/bsg_dff_chain.svg
 
-  Note that, input data will be transmitted stage by stage without any stall. If num_stages_p is 0, input data is assigned to output port directly without any registers.
+  Input data will be transmitted stage by stage without any stall. If num_stages_p is 0, input data is assigned to output port directly without any registers.
 
 ******************
 bsg_dff_en_bypass
 ******************
 
-* Overview
+- Overview
 
-  This is a dff with enable Port.It is triggered by positive edge of the clock.
+  This is a DFF with bypass path. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.
 
-* Parameter
+- Parameter
 
   +------------+-----------------------------------------------------+---------------------+
   |   NAME     |     DESCRIPTION                                     |       DEFAULT       |
@@ -2307,22 +2307,24 @@ bsg_dff_en_bypass
   +---------+---------+----------+--------------------------------------------+
   |  TYPE   |   NAME  |   WIDTH  |                 DESCRIPTION                |
   +---------+---------+----------+--------------------------------------------+ 
-  |  CLOCK  |  clk_i  |     1    | clock port                                 |
+  |  CLOCK  |  clk_i  |     1    | input clock                                |
   +---------+---------+----------+--------------------------------------------+
-  |         | data_i  | width_p  | data input port                            |
+  |         | data_i  | width_p  | input data                                 |
   +  INPUT  +---------+----------+--------------------------------------------+
-  |         |  en_i   |     1    |  enable port                               |
+  |         |  en_i   |     1    | enable                                     |
   +---------+---------+----------+--------------------------------------------+
-  | OUTPUT  | data_o  | width_p  | data output port                           |
+  | OUTPUT  | data_o  | width_p  | output data                                |
   +---------+---------+----------+--------------------------------------------+
 
 - Assertion
 
   None
 
-* Details & Circuit structure
+- Details & Circuit structure
   
-   .. image :: image/bsg_dff_en_bypass.svg
+  .. image :: image/bsg_dff_en_bypass.svg
+
+  When enable is 1, input data is stored into the register and bypassed to the output port at the same time.
   
 ************************
 bsg_dff_reset_en_bypass
