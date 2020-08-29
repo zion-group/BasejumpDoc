@@ -4097,7 +4097,7 @@
 <h3>bsg_dff<a class="headerlink" href="#bsg-dff" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with no reset Port. It is triggered by positive edge of the clock.</p>
+<p>This is a DFF without other ports. It is triggered by the positive edge of input clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4126,8 +4126,6 @@
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4145,17 +4143,17 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4163,19 +4161,15 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff.svg" src="../_images/bsg_dff.svg" /></div></blockquote>
-</li>
+<img alt="../_images/bsg_dff.svg" src="../_images/bsg_dff.svg" /></li>
 </ul>
 </div>
 <div class="section" id="bsg-dff-en">
 <h3>bsg_dff_en<a class="headerlink" href="#bsg-dff-en" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with enable Port. It is triggered by positive edge of the clock.</p>
+<p>This is a DFF with an enable port. It is triggered by the positive edge of input clock.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4204,8 +4198,6 @@
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4223,21 +4215,21 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-even"><td><p>en_i</p></td>
 <td><p>1</p></td>
-<td><p>enable port</p></td>
+<td><p>enable</p></td>
 </tr>
 <tr class="row-odd"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4245,26 +4237,22 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_en.svg" src="../_images/bsg_dff_en.svg" /></div></blockquote>
-</li>
+<img alt="../_images/bsg_dff_en.svg" src="../_images/bsg_dff_en.svg" /></li>
 </ul>
 </div>
 <div class="section" id="bsg-dff-reset">
 <h3>bsg_dff_reset<a class="headerlink" href="#bsg-dff-reset" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with reset Port.It is triggered by positive edge of the clock.</p>
+<p>This is a DFF with a reset port. It is triggered by the positive edge of input clock. The reset is synchronous and active high.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 68%" />
-<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 58%" />
+<col style="width: 27%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4280,14 +4268,12 @@
 <td><p>0</p></td>
 </tr>
 <tr class="row-even"><td><p>reset_val_p</p></td>
-<td><p>Bit extended reset_val_p is initial value of data_o after reset</p></td>
+<td><p>initial value of data_o if reset</p></td>
 <td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4305,22 +4291,22 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>RESET</p></td>
 <td><p>reset_i</p></td>
 <td><p>1</p></td>
-<td><p>reset port</p></td>
+<td><p>reset</p></td>
 </tr>
 <tr class="row-even"><td><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-odd"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4328,26 +4314,22 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_reset.svg" src="../_images/bsg_dff_reset.svg" /></div></blockquote>
-</li>
+<img alt="../_images/bsg_dff_reset.svg" src="../_images/bsg_dff_reset.svg" /></li>
 </ul>
 </div>
 <div class="section" id="bsg-dff-reset-en">
 <h3>bsg_dff_reset_en<a class="headerlink" href="#bsg-dff-reset-en" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with reset and enable Port.It is triggered by positive edge of the clock.</p>
+<p>This is a DFF with reset and enable ports. It is triggered by the positive edge of input clock. The reset is synchronous and active high.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 68%" />
-<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 58%" />
+<col style="width: 27%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4363,14 +4345,12 @@
 <td><p>0</p></td>
 </tr>
 <tr class="row-even"><td><p>reset_val_p</p></td>
-<td><p>Bit extended reset_val_p is initial value of data_o after reset</p></td>
+<td><p>initial value of output data when reset</p></td>
 <td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4388,26 +4368,26 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>RESET</p></td>
 <td><p>reset_i</p></td>
 <td><p>1</p></td>
-<td><p>reset port</p></td>
+<td><p>reset</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-odd"><td><p>en_i</p></td>
 <td><p>1</p></td>
-<td><p>enable port</p></td>
+<td><p>enable</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4415,26 +4395,22 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_reset_en.svg" src="../_images/bsg_dff_reset_en.svg" /></div></blockquote>
-</li>
+<img alt="../_images/bsg_dff_reset_en.svg" src="../_images/bsg_dff_reset_en.svg" /></li>
 </ul>
 </div>
 <div class="section" id="bsg-dff-negedge-reset">
 <h3>bsg_dff_negedge_reset<a class="headerlink" href="#bsg-dff-negedge-reset" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with reset Port.It is triggered by negative edge of the clock.</p>
+<p>This is a DFF with a reset port. It is triggered by the negative edge of input clock. The reset is synchronous and active high.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 68%" />
-<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 58%" />
+<col style="width: 27%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4452,8 +4428,6 @@
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4471,22 +4445,22 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>RESET</p></td>
 <td><p>reset_i</p></td>
 <td><p>1</p></td>
-<td><p>reset port</p></td>
+<td><p>reset</p></td>
 </tr>
 <tr class="row-even"><td><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-odd"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4494,26 +4468,22 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_negedge_reset.svg" src="../_images/bsg_dff_negedge_reset.svg" /></div></blockquote>
-</li>
+<img alt="../_images/bsg_dff_negedge_reset.svg" src="../_images/bsg_dff_negedge_reset.svg" /></li>
 </ul>
 </div>
 <div class="section" id="bsg-dff-gatestack">
 <h3>bsg_dff_gatestack<a class="headerlink" href="#bsg-dff-gatestack" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with no reset Port.It is triggered by positive edge of the i1.</p>
+<p>This is a set of DFFs. Each DFF is triggered by the positive edge of the its corresponding bit of i1. There is no reset or enable signals for these DFFs.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 68%" />
-<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 62%" />
+<col style="width: 24%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4531,15 +4501,13 @@
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
 <col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 62%" />
+<col style="width: 67%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>TYPE</p></td>
@@ -4550,16 +4518,16 @@
 <tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
 <td><p>i0</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-odd"><td><p>i1</p></td>
 <td><p>width_p</p></td>
-<td><p>data transmission trigger port</p></td>
+<td><p>data transmission trigger, clocks for each bit of input</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
 <td><p>o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4567,26 +4535,22 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_gatestack.svg" src="../_images/bsg_dff_gatestack.svg" /></div></blockquote>
-</li>
+<img alt="../_images/bsg_dff_gatestack.svg" src="../_images/bsg_dff_gatestack.svg" /></li>
 </ul>
 </div>
 <div class="section" id="bsg-dff-chain">
 <h3>bsg_dff_chain<a class="headerlink" href="#bsg-dff-chain" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with no reset Port.It is triggered by positive edge of the clock.</p>
+<p>This is a DFF chain. Input data will be stored num_stages_p times in the DFF chain. All DFFs are triggered by the positive edge of input clock. There are no reset and enable signals in each DFF.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 68%" />
-<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 59%" />
+<col style="width: 26%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4598,14 +4562,12 @@
 <td><p>-1</p></td>
 </tr>
 <tr class="row-odd"><td><p>num_stages_p</p></td>
-<td><p>stage number of <a class="reference internal" href="#bsg-dff">bsg_dff</a></p></td>
+<td><p>stage number of DFFs</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4623,17 +4585,17 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4641,11 +4603,8 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_chain.svg" src="../_images/bsg_dff_chain.svg" /></div></blockquote>
+<img alt="../_images/bsg_dff_chain.svg" src="../_images/bsg_dff_chain.svg" /><p>Input data will be transmitted stage by stage without any stall. If num_stages_p is 0, input data is assigned to output port directly without any registers.</p>
 </li>
 </ul>
 </div>
@@ -4653,7 +4612,7 @@
 <h3>bsg_dff_en_bypass<a class="headerlink" href="#bsg-dff-en-bypass" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with enable Port.It is triggered by positive edge of the clock.</p>
+<p>This is a DFF with a bypass lane. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
@@ -4682,8 +4641,6 @@
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4701,21 +4658,21 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-even"><td><p>en_i</p></td>
 <td><p>1</p></td>
-<td><p>enable port</p></td>
+<td><p>enable</p></td>
 </tr>
 <tr class="row-odd"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4723,11 +4680,8 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_en_bypass.svg" src="../_images/bsg_dff_en_bypass.svg" /></div></blockquote>
+<img alt="../_images/bsg_dff_en_bypass.svg" src="../_images/bsg_dff_en_bypass.svg" /><p>When enable is 1, input data is stored into the register and bypassed to the output port at the same time. The module consists of a bsg_dff_en and a bypass lane.</p>
 </li>
 </ul>
 </div>
@@ -4735,14 +4689,14 @@
 <h3>bsg_dff_reset_en_bypass<a class="headerlink" href="#bsg-dff-reset-en-bypass" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with enable and reset Port.It is triggered by positive edge of the clock.</p>
+<p>This is a DFF with a bypass lane and a reset port. The DFF is triggered by positive edge of the clock. If the DFF is enabled, the output data is changed to be the input data immediately. The reset is synchronous and active high.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 68%" />
-<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 60%" />
+<col style="width: 26%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4758,14 +4712,12 @@
 <td><p>0</p></td>
 </tr>
 <tr class="row-even"><td><p>reset_val_p</p></td>
-<td><p>Bit extended reset_val_p is initial value of data_o after reset</p></td>
+<td><p>initial value of output data when reset</p></td>
 <td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4783,26 +4735,26 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>RESET</p></td>
 <td><p>reset_i</p></td>
 <td><p>1</p></td>
-<td><p>reset port</p></td>
+<td><p>reset</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-odd"><td><p>en_i</p></td>
 <td><p>1</p></td>
-<td><p>enable port</p></td>
+<td><p>enable</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4810,11 +4762,8 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_reset_en_bypass.svg" src="../_images/bsg_dff_reset_en_bypass.svg" /></div></blockquote>
+<img alt="../_images/bsg_dff_reset_en_bypass.svg" src="../_images/bsg_dff_reset_en_bypass.svg" /><p>When enable is 1, input data is stored into the register and bypassed to the output port at the same time. The module consists of a bsg_dff_reset_en and a bypass lane.</p>
 </li>
 </ul>
 </div>
@@ -4822,14 +4771,14 @@
 <h3>bsg_dff_reset_set_clear<a class="headerlink" href="#bsg-dff-reset-set-clear" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dff with set and reset and clear Port.It is triggered by positive edge of the clock.</p>
+<p>This is a DFF with reset, set and clear ports. It is triggered by positive edge of the clock. The reset is synchronous and active high.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 18%" />
-<col style="width: 63%" />
-<col style="width: 19%" />
+<col style="width: 20%" />
+<col style="width: 59%" />
+<col style="width: 21%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4841,14 +4790,12 @@
 <td><p>“inv”</p></td>
 </tr>
 <tr class="row-odd"><td><p>clear_over_set_p</p></td>
-<td><p>set the set signal and clear signal priorities</p></td>
+<td><p>priorities of clear. If it is 1, clear is prio to set</p></td>
 <td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4866,26 +4813,30 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>RESET</p></td>
 <td><p>reset_i</p></td>
 <td><p>1</p></td>
-<td><p>reset port</p></td>
+<td><p>reset</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><p>INPUT</p></td>
-<td><p>set_i</p></td>
+<tr class="row-even"><td rowspan="3"><p>INPUT</p></td>
+<td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
-<tr class="row-odd"><td><p>clear_i</p></td>
+<tr class="row-odd"><td><p>set_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>set enable</p></td>
 </tr>
-<tr class="row-even"><td><p>OUTPUT</p></td>
+<tr class="row-even"><td><p>clear_i</p></td>
+<td><p>width_p</p></td>
+<td><p>clear enable</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
@@ -4893,11 +4844,8 @@
 <li><p>Assertion</p>
 <p>None</p>
 </li>
-</ul>
-<ul>
 <li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dff_reset_set_clear.svg" src="../_images/bsg_dff_reset_set_clear.svg" /></div></blockquote>
+<img alt="../_images/bsg_dff_reset_set_clear.svg" src="../_images/bsg_dff_reset_set_clear.svg" /><p>Reset value of the DFF is ‘0. Each bit of the input data has a corresponding set and clear signal. If set_i[i] and clear_i[i] are both 1’b1: a) data_o[i] is 0, when clear_over_set_p is 1. b)data_o[i] is 1, when clear_over_set_p is 0.</p>
 </li>
 </ul>
 </div>
@@ -4905,14 +4853,14 @@
 <h3>bsg_dlatch<a class="headerlink" href="#bsg-dlatch" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Overview</p>
-<p>This is a dlatch with no reset Port.It is triggered by high of the clock.</p>
+<p>This is a dlatch. The clock is active high.</p>
 </li>
 <li><p>Parameter</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 44%" />
-<col style="width: 23%" />
+<col style="width: 32%" />
+<col style="width: 46%" />
+<col style="width: 22%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>NAME</p></td>
@@ -4924,14 +4872,12 @@
 <td><p>“inv”</p></td>
 </tr>
 <tr class="row-odd"><td><p>i_know_this_is_a_bad_idea_p</p></td>
-<td><p>choose whether to show fatal</p></td>
+<td><p>show the necessary to instantiate a latch</p></td>
 <td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-</ul>
-<ul>
 <li><p>Port</p>
 <table class="docutils align-default">
 <colgroup>
@@ -4949,30 +4895,30 @@
 <tr class="row-even"><td><p>CLOCK</p></td>
 <td><p>clk_i</p></td>
 <td><p>1</p></td>
-<td><p>clock port</p></td>
+<td><p>input clock</p></td>
 </tr>
 <tr class="row-odd"><td><p>INPUT</p></td>
 <td><p>data_i</p></td>
 <td><p>width_p</p></td>
-<td><p>data input port</p></td>
+<td><p>input data</p></td>
 </tr>
 <tr class="row-even"><td><p>OUTPUT</p></td>
 <td><p>data_o</p></td>
 <td><p>width_p</p></td>
-<td><p>data output port</p></td>
+<td><p>output data</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li><p>Assertion</p>
-<p>None</p>
+<ul>
+<li><p>i_know_this_is_a_bad_idea_p == 0</p>
+<p>The default value of i_know_this_is_a_bad_idea_p is 0. If users want to instantiate a latch, it is necessary override <em>i_know_this_is_a_bad_idea_p</em> to show that the instantiation is inevitable and the user know all adverse effects.</p>
 </li>
 </ul>
-<ul>
-<li><p>Details &amp; Circuit structure</p>
-<blockquote>
-<div><img alt="../_images/bsg_dlatch.svg" src="../_images/bsg_dlatch.svg" /></div></blockquote>
 </li>
+<li><p>Details &amp; Circuit structure</p>
+<img alt="../_images/bsg_dlatch.svg" src="../_images/bsg_dlatch.svg" /></li>
 </ul>
 </div>
 </div>
