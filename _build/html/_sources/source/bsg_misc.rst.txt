@@ -1993,7 +1993,7 @@ bsg_crossbar_o_by_i
 
    .. image :: image/bsg_crossbar_o_by_i.jpg
 
-Dff Releted Unit
+DFF & Latch
 ===============
 
 ********
